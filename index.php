@@ -28,8 +28,8 @@ check_auth();
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    <link rel="stylesheet" type="text/css" href="http://js.arcgis.com/3.10/js/esri/css/esri.css">   
-    <link rel="stylesheet" type="text/css" href="http://esri.github.io/bootstrap-map-js/src/css/bootstrapmap.css">  
+    <link rel="stylesheet" type="text/css" href="https://js.arcgis.com/3.10/js/esri/css/esri.css">   
+    <link rel="stylesheet" type="text/css" href="https://esri.github.io/bootstrap-map-js/src/css/bootstrapmap.css">  
   </head>
 
   <body>
@@ -76,7 +76,7 @@ check_auth();
                 }]
             };
         </script>
-        <script src="http://js.arcgis.com/3.10compact"></script>
+        <script src="https://js.arcgis.com/3.10compact"></script>
         <script>
             require(["esri/map", "application/bootstrapmap", "dojo/domReady!"], 
               function(Map, BootstrapMap) {
@@ -96,6 +96,5 @@ check_auth();
     <script src="/js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="/js/ie10-viewport-bug-workaround.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
   </body>
 </html>
