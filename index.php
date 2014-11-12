@@ -29,7 +29,7 @@ check_auth();
     <![endif]-->
 
     <link rel="stylesheet" type="text/css" href="http://js.arcgis.com/3.10/js/esri/css/esri.css">   
-    <link rel="stylesheet" type="text/css" href="/css/bootstrapmap.css">   
+    <link rel="stylesheet" type="text/css" href="/css/bootstrapmap.min.css">   
 
   </head>
 
