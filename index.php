@@ -82,8 +82,8 @@ check_auth();
               function(Map, BootstrapMap) {
                 // Get a reference to the ArcGIS Map class
                 var map = BootstrapMap.create("mapDiv",{
-                  basemap:"national-geographic",
-                  center:[-122.45,37.77],
+                  basemap:"osm",
+                  center:[45.513973, -73.618013],
                   zoom:12
                 });
             });
