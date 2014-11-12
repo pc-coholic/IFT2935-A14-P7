@@ -1,5 +1,5 @@
 <?php
-$baseurl = 'https://ift2935-a14-p7.herokuapp.com/';
+define("BASEURL", "https://ift2935-a14-p7.herokuapp.com/");
 
 function check_auth() {
   if (!isset($_GET['ticket'])) {
@@ -10,12 +10,12 @@ function check_auth() {
 }
 
 function do_udem_auth() {
-  header("Location: https://identification.umontreal.ca/cas/login.ashx?service=" . $baseurl);
+  header("Location: https://identification.umontreal.ca/cas/login.ashx?service=" . BASEURL);
   exit();
 }
 
 function check_udem_auth() {
-  $authresponse = simplexml_load_file("https://identification.umontreal.ca/cas/serviceValidate.ashx?ticket=" . $_GET['ticket'] . "&service=" . $baseurl);
+  $authresponse = simplexml_load_file("https://identification.umontreal.ca/cas/serviceValidate.ashx?ticket=" . $_GET['ticket'] . "&service=" . BASEURL;
   print_r($authresponse);
 }
 
