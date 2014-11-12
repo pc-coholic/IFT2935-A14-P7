@@ -1,4 +1,5 @@
 <?php
+session_start();
 define("BASEURL", "https://ift2935-a14-p7.herokuapp.com/");
 
 function check_auth() {
@@ -15,11 +16,13 @@ function do_udem_auth() {
 }
 
 function check_udem_auth() {
-  #$authurl = "https://identification.umontreal.ca/cas/serviceValidate.ashx?ticket=" . $_GET['ticket'] . "&service=" . BASEURL;
-  print_r($authurl);
-  #$authresponse = simplexml_load_file($authurl);
-  return true;
-  # FIXME
+  $authurl = "https://identification.umontreal.ca/cas/serviceValidate.ashx?ticket=" . $_GET['ticket'] . "&service=" . BASEURL;
+  $authresponse = file_get_contents($authurl);
+  if (strpos($authresponse, 'authenticationSuccess')) {
+    $_SESSION['user'] = "username";
+  } else {
+    do_udem_auth();
+  }
 }
 
 ?>
