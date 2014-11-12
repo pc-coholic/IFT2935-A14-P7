@@ -15,8 +15,11 @@ function do_udem_auth() {
 }
 
 function check_udem_auth() {
-  $authresponse = simplexml_load_file("https://identification.umontreal.ca/cas/serviceValidate.ashx?ticket=" . $_GET['ticket'] . "&service=" . BASEURL);
+  $authurl = "https://identification.umontreal.ca/cas/serviceValidate.ashx?ticket=" . $_GET['ticket'] . "&service=" . BASEURL;
+  $authresponse = simplexml_load_file($authurl);
+  print_r($auth_url);
   print_r($authresponse);
+  var_dump($authresponse);
 }
 
 ?>
