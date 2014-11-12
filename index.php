@@ -28,9 +28,8 @@ check_auth();
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    <link rel="stylesheet" type="text/css" href="https://js.arcgis.com/3.10/js/esri/css/esri.css">   
-    <link rel="stylesheet" type="text/css" href="/css/bootstrapmap.min.css">   
-
+    <link rel="stylesheet" type="text/css" href="http://js.arcgis.com/3.10/js/esri/css/esri.css">   
+    <link rel="stylesheet" type="text/css" href="http://esri.github.io/bootstrap-map-js/src/css/bootstrapmap.css">  
   </head>
 
   <body>
@@ -59,30 +58,7 @@ check_auth();
     </nav>
 
     <div class="container">
-      <script>
-          var package_path = window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/'));
-          var dojoConfig = {
-              packages: [{
-                  name: "application",
-                  location: package_path + '/js'
-              }, {
-                  name: "bootstrap",
-                  location: "//rawgit.com/xsokev/Dojo-Bootstrap/master"
-              }]
-          };
-      </script>
-      <script src="https://js.arcgis.com/3.10compact"></script>
-      <script>
-          require(["esri/map", "application/bootstrapmap", "dojo/domReady!"], 
-            function(Map, BootstrapMap) {
-              // Get a reference to the ArcGIS Map class
-              var map = BootstrapMap.create("mapDiv",{
-                basemap:"national-geographic",
-                center:[-122.45,37.77],
-                zoom:12
-              });
-          });
-      </script>
+      <div id="mapDiv"></div>
 <!--
       <div class="starter-template">
         <h1>Bootstrap starter template</h1>
@@ -91,7 +67,28 @@ check_auth();
 -->
     </div><!-- /.container -->
 
-
+     <script type="text/javascript">
+            var package_path = "//esri.github.com/bootstrap-map-js/src/js";
+            var dojoConfig = {
+                packages: [{
+                    name: "application",
+                    location: package_path
+                }]
+            };
+        </script>
+        <script src="http://js.arcgis.com/3.10compact"></script>
+        <script>
+            require(["esri/map", "application/bootstrapmap", "dojo/domReady!"], 
+              function(Map, BootstrapMap) {
+                // Get a reference to the ArcGIS Map class
+                var map = BootstrapMap.create("mapDiv",{
+                  basemap:"national-geographic",
+                  center:[-122.45,37.77],
+                  zoom:12
+                });
+            });
+        </script>
+  
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
