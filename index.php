@@ -1,3 +1,5 @@
 <?php
-phpinfo();
+require("auth.php");
+check_auth();
+
 ?>
