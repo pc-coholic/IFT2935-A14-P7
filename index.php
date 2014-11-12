@@ -83,7 +83,7 @@ check_auth();
                 // Get a reference to the ArcGIS Map class
                 var map = BootstrapMap.create("mapDiv",{
                   basemap:"osm",
-                  center:[45.5379, -73.5844],
+                  center:[-73.5844, 45.5379],
                   zoom:12
                 });
             });
