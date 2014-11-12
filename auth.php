@@ -10,7 +10,8 @@ function check_auth() {
 }
 
 function do_udem_auth() {
-  print "do_udem_auth()";
+  header("Location: https://identification.umontreal.ca/cas/login.ashx?service=" . $baseurl);
+  exit();
 }
 
 function check_udem_auth() {
