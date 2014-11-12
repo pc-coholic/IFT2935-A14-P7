@@ -28,7 +28,7 @@ check_auth();
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    <link rel="stylesheet" type="text/css" href="http://js.arcgis.com/3.10/js/esri/css/esri.css">   
+    <link rel="stylesheet" type="text/css" href="https://js.arcgis.com/3.10/js/esri/css/esri.css">   
     <link rel="stylesheet" type="text/css" href="/css/bootstrapmap.min.css">   
 
   </head>
@@ -71,7 +71,7 @@ check_auth();
               }]
           };
       </script>
-      <script src="http://js.arcgis.com/3.10compact"></script>
+      <script src="https://js.arcgis.com/3.10compact"></script>
       <script>
           require(["esri/map", "application/bootstrapmap", "dojo/domReady!"], 
             function(Map, BootstrapMap) {
