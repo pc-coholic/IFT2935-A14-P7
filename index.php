@@ -53,7 +53,7 @@ check_auth();
       </div>
     </nav>
 
-    <div class="container">
+    <div class="container-fluid">
       <div id="mapDiv"></div>
 <!--
       <div class="starter-template">
