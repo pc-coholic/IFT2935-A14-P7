@@ -54,7 +54,7 @@ check_auth();
     </nav>
 
     <div class="container-fluid">
-      <div class="alert alert-danger" role="alert">Cette carte montre des hopitaux et temps d'attentes fictives! Communiquez toujours avec le <strong>911</strong> en cas d'urgence medicale!<div>
+      <div class="alert alert-danger" role="alert">Cette carte montre des hopitaux et temps d'attentes fictives! Communiquez toujours avec le <strong>911</strong> en cas d'urgence medicale!</div>
 
       <div id="mapDiv"></div>
 <!--
