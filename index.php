@@ -47,7 +47,7 @@ check_auth();
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav navbar-right">
-              <li class="active"><a href="https://identification.umontreal.ca/cas/logout.ashx">Logout <?= $_SESSION['user'][0] ?></a></li>
+              <li><a href="https://identification.umontreal.ca/cas/logout.ashx">Logout <?= $_SESSION['user'][0] ?></a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
