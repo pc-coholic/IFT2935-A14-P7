@@ -19,7 +19,8 @@ function check_udem_auth() {
   $authurl = "https://identification.umontreal.ca/cas/serviceValidate.ashx?ticket=" . $_GET['ticket'] . "&service=" . BASEURL;
   $authresponse = file_get_contents($authurl);
   if (strpos($authresponse, 'authenticationSuccess')) {
-    $_SESSION['user'] = "username";
+    $regex = '#<cas:user>(.*?)</cas:user>#';
+    preg_match($regex, $authresponse, $_SESSION['user']);
   } else {
     do_udem_auth();
   }
