@@ -66,7 +66,7 @@ check_auth();
     </div><!-- /.container -->
 
      <script type="text/javascript">
-            var package_path = "//esri.github.com/bootstrap-map-js/src/js";
+            var package_path = "https://esri.github.com/bootstrap-map-js/src/js";
             var dojoConfig = {
                 packages: [{
                     name: "application",
