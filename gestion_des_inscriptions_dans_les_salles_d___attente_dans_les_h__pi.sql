@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 18, 2014 at 10:56 PM
+-- Generation Time: Nov 24, 2014 at 07:34 PM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -60,12 +60,12 @@ CREATE TABLE IF NOT EXISTS `departements` (
 --
 
 INSERT INTO `departements` (`ID`, `Nom`, `Specialite`, `ID_H`, `TempsAttente`) VALUES
-(1, 'Optometrie', 'Optometrie', 1, 0),
-(2, 'Cardiologie\r\n', 'Cardiologie', 1, 0),
-(3, 'Urologie', 'Urologie', 1, 0),
-(4, 'Departement de neurologie', 'Neurologie', 2, 0),
-(5, 'Departement de pediatrie', 'Pediatrie', 2, 0),
-(6, 'Departement de cardiologie', 'Cardiologie', 2, 0),
+(1, 'Anesthesie', '', 1, 0),
+(2, 'Biochimie', '', 1, 0),
+(3, 'Chirurgie', '', 1, 0),
+(4, 'Neurologie', '', 2, 0),
+(5, 'Pediatrie', '', 2, 0),
+(6, 'Cardiologie', '', 2, 0),
 (7, 'Gastroanterologie', 'Gastroanterologie', 3, 0),
 (8, 'Genicologie', 'Genicologie', 3, 0),
 (9, 'Pediatrie', 'pediatrie', 4, 0),
@@ -76,7 +76,21 @@ INSERT INTO `departements` (`ID`, `Nom`, `Specialite`, `ID_H`, `TempsAttente`) V
 (14, 'Radiographie', 'Radiographie', 6, 0),
 (15, 'Gastroenterologie', 'Gastroenterologie', 7, 0),
 (16, 'Pediatrie', 'Pediatrie', 7, 0),
-(17, 'Optometrie', 'Optometrie', 7, 0);
+(17, 'Optometrie', 'Optometrie', 7, 0),
+(18, 'Imagerie medicale', '', 1, 0),
+(19, 'Medecine dentaire', '', 1, 0),
+(20, 'Microbiologie', '', 4, 0),
+(21, 'Gynecologie', '', 4, 0),
+(22, 'Ophtalmologie', '', 5, 0),
+(23, 'Pathologie', '', 1, 0),
+(24, 'Pediatrie', '', 1, 0),
+(25, 'Pharmacie', '', 1, 0),
+(26, 'Psychiatrie', '', 1, 0),
+(27, 'Rhumatologie', '', 3, 0),
+(28, 'Sommeil', '', 3, 0),
+(29, 'Dermatologie', '', 3, 0),
+(30, 'Audiologie', '', 3, 0),
+(31, 'Ophtalmologie', '', 4, 0);
 
 -- --------------------------------------------------------
 
@@ -89,16 +103,38 @@ CREATE TABLE IF NOT EXISTS `evaluer` (
   `ID_D` int(11) NOT NULL,
   `ID_S` int(11) NOT NULL,
   `ID_I` int(11) NOT NULL,
-  `DateArrive` date NOT NULL,
-  `DateService` date NOT NULL,
-  UNIQUE KEY `ID_I` (`ID_I`),
+  `DateArrive` datetime NOT NULL,
+  `DateService` datetime NOT NULL,
   KEY `NAS` (`numeroPatient`),
   KEY `ID_D` (`ID_D`),
   KEY `ID_S` (`ID_S`),
   KEY `ID_D_2` (`ID_D`),
   KEY `ID_S_2` (`ID_S`),
-  KEY `ID_I_2` (`ID_I`)
+  KEY `ID_I_2` (`ID_I`),
+  KEY `ID_I` (`ID_I`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `evaluer`
+--
+
+INSERT INTO `evaluer` (`numeroPatient`, `ID_D`, `ID_S`, `ID_I`, `DateArrive`, `DateService`) VALUES
+(6, 1, 4, 1, '2014-11-12 05:10:00', '2014-11-12 11:18:00'),
+(14, 3, 5, 7, '2014-10-28 06:25:00', '2014-10-28 06:57:00'),
+(3, 4, 4, 9, '2014-10-01 08:15:00', '2014-10-01 08:27:00'),
+(11, 5, 2, 11, '2014-10-20 10:15:00', '2014-10-20 12:00:00'),
+(2, 6, 3, 12, '2014-09-03 04:07:00', '2014-09-03 05:31:00'),
+(1, 6, 2, 13, '2013-12-10 09:18:00', '2013-11-10 10:00:00'),
+(7, 7, 1, 14, '2014-08-19 13:42:00', '2014-08-19 15:07:00'),
+(13, 8, 3, 18, '2014-06-18 13:20:00', '2014-06-18 16:09:00'),
+(12, 9, 3, 19, '2014-11-07 09:14:00', '2014-11-07 11:11:00'),
+(16, 9, 3, 20, '2014-02-24 08:28:00', '2014-02-24 09:28:00'),
+(9, 12, 2, 26, '2014-11-05 00:10:00', '2014-11-05 00:43:00'),
+(15, 13, 4, 27, '2014-07-24 12:19:00', '2014-07-24 13:09:00'),
+(17, 13, 1, 28, '2014-11-04 12:19:00', '2014-11-04 12:50:00'),
+(5, 14, 5, 29, '2014-07-15 12:21:00', '2014-07-15 15:18:00'),
+(4, 16, 2, 31, '2014-11-11 18:42:00', '2014-11-11 19:00:00'),
+(10, 17, 4, 33, '2014-04-09 04:26:00', '2014-04-09 04:53:00');
 
 -- --------------------------------------------------------
 
@@ -211,7 +247,8 @@ CREATE TABLE IF NOT EXISTS `patient` (
   `TypeEnvoi` int(11) NOT NULL,
   `NB_MIN` int(11) NOT NULL,
   PRIMARY KEY (`numeroPatient`),
-  UNIQUE KEY `NAS` (`numeroPatient`)
+  UNIQUE KEY `NAS` (`numeroPatient`),
+  KEY `TypeEnvoi` (`TypeEnvoi`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -271,6 +308,27 @@ CREATE TABLE IF NOT EXISTS `specialite` (
   KEY `ID_H` (`ID_H`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `typeenvoi`
+--
+
+CREATE TABLE IF NOT EXISTS `typeenvoi` (
+  `ID` int(11) NOT NULL,
+  `Nom` varchar(14) NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `typeenvoi`
+--
+
+INSERT INTO `typeenvoi` (`ID`, `Nom`) VALUES
+(1, 'Message'),
+(2, 'E-mail'),
+(3, 'Appel');
+
 --
 -- Constraints for dumped tables
 --
@@ -301,6 +359,12 @@ ALTER TABLE `evaluer`
 --
 ALTER TABLE `infirmiere`
   ADD CONSTRAINT `infirmiere_ibfk_1` FOREIGN KEY (`ID_D`) REFERENCES `departements` (`ID`);
+
+--
+-- Constraints for table `patient`
+--
+ALTER TABLE `patient`
+  ADD CONSTRAINT `patient_ibfk_1` FOREIGN KEY (`TypeEnvoi`) REFERENCES `typeenvoi` (`ID`);
 
 --
 -- Constraints for table `specialite`
