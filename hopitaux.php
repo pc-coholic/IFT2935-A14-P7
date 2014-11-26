@@ -15,11 +15,10 @@ while($r = mysqli_fetch_assoc($sth)) {
     $rows[] = $r;
 }
 
-$encoded = utf8_encode_deep($rows);
-$json = json_encode($encoded);
+utf8_encode_deep($rows);
+$json = json_encode($rows);
 
 var_dump($rows);
-var_dump($encoded);
 var_dump($json);
 
 mysqli_close($con);
