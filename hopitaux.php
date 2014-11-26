@@ -1,15 +1,20 @@
 <?php
-$pdo = new PDO(getenv('DB_DSN'), getenv('DB_USER'), getenv('DB_PASS'));
+$con=mysqli_connect(getenv('DB_HOST'), getenv('DB_USER'), getenv('DB_PASS'), getenv('DB_BASE'));
 
-$statement=$pdo->prepare("SELECT * FROM hopital");
-$statement->execute();
-$results=$statement->fetchAll(PDO::FETCH_ASSOC);
-$json=json_encode($results);
+// Check connection
+if (mysqli_connect_errno())
+  {
+  echo "Failed to connect to MySQL: " . mysqli_connect_error();
+  }
 
-print $json;
+// Perform queries 
+$sth = mysqli_query($con,"SELECT * FROM hopital");
 
-$pdo = null;
+$rows = array();
+while($r = mysqli_fetch_assoc($sth)) {
+    $rows[] = $r;
+}
+print json_encode($rows);
+
+mysqli_close($con);
 ?>
-aaaa
- <?= $json ?>
-bbbb
