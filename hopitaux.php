@@ -14,8 +14,23 @@ $rows = array();
 while($r = mysqli_fetch_assoc($sth)) {
     $rows[] = $r;
 }
-print_r($rows);
 print json_encode($rows);
-echo("Error description: " . mysqli_error($con));
+switch(json_last_error())
+ {
+  case JSON_ERROR_DEPTH:
+   echo ' - Maximale Stacktiefe überschritten';
+  break;
+  case JSON_ERROR_CTRL_CHAR:
+   echo ' - Unerwartetes Steuerzeichen gefunden';
+  break;
+  case JSON_ERROR_SYNTAX:
+   echo ' - Syntaxfehler, ungültiges JSON';
+  break;
+  case JSON_ERROR_NONE:
+   echo ' - Keine Fehler';
+  break;
+ }
+
+
 mysqli_close($con);
 ?>
