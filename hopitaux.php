@@ -8,7 +8,7 @@ if (mysqli_connect_errno())
   }
 
 // Perform queries 
-$sth = mysqli_query("SELECT * FROM hopital");
+$sth = mysqli_query($con, "SELECT * FROM hopital");
 
 $rows = array();
 while($r = mysqli_fetch_assoc($sth)) {
