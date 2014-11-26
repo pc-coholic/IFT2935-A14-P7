@@ -18,8 +18,7 @@ while($r = mysqli_fetch_assoc($sth)) {
 utf8_encode_deep($rows);
 $json = json_encode($rows);
 
-var_dump($rows);
-var_dump($json);
+print($json);
 
 mysqli_close($con);
 
