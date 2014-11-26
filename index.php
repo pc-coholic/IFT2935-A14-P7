@@ -84,6 +84,18 @@ check_auth();
                   center:[-73.5844, 45.5379],
                   zoom:12
                 });
+
+                $.getJSON( "hopitaux.php", function( data ) {
+                  $.each( data, function( key, val ) {
+                    //alert(val['Nom']);
+                    var latLongPoint = new esri.geometry.Point(val['Longitude'], val['Latitude']);
+                    
+                    var symbol = new esri.symbol.SimpleMarkerSymbol().setSize(8).setColor(new dojo.Color([255, 0, 0]));
+                    var graphic = new esri.Graphic(latLongPoint, symbol);
+                    
+                    map.graphics.add(graphic);
+                  });
+               });
             });
         </script>
   
