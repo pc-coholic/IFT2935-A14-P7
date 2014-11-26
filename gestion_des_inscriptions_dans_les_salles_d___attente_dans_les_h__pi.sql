@@ -146,8 +146,8 @@ CREATE TABLE IF NOT EXISTS `hopital` (
   `ID` int(11) NOT NULL,
   `Nom` text NOT NULL,
   `Adresse` text NOT NULL,
-  `Latitude` int(11) NOT NULL,
-  `Longitude` int(11) NOT NULL,
+  `Latitude` varchar(11) NOT NULL,
+  `Longitude` varchar(11) NOT NULL,
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -156,21 +156,21 @@ CREATE TABLE IF NOT EXISTS `hopital` (
 --
 
 INSERT INTO `hopital` (`ID`, `Nom`, `Adresse`, `Latitude`, `Longitude`) VALUES
-(1, 'CHU Sainte-Justine', '3175, Chemin de la Cote-Sainte-Catherine, Montreal', 0, 0),
-(2, 'Hopital chinois de Montreal', '189, avenue Viger Est, Montreal\r\n', 0, 0),
-(3, 'Hopital Notre-Dame du CHUM\r\n', '1560, RUE Sherbrooke Est, Montréal\r\n', 0, 0),
-(4, 'Hotel-Dieu du CHUM', '3840, rue Saint-Urbain, Montreal\r\n', 0, 0),
-(5, 'Centre hospitalier de St. Mary\r\n', '3830, avenue Lacombe, Montreal\r\n', 0, 0),
-(6, 'Hopital general de Montreal\r\n', '1650, avenue Cedar, Montreal\r\n', 0, 0),
-(7, 'Hopital de Lachine\r\n', '650, 16e avenue, Lachine\r\n', 0, 0),
-(8, 'Hopital General du Lakeshore\r\n', '160, avenue Stillview, Pointe-Claire\r\n', 0, 0),
-(9, 'Hopital de Verdun\r\n', '4000, Boulevard Lasalle, Verdun\r\n', 0, 0),
-(10, 'Hopital Marie Clarac\r\n', '3530, boulevard Gouin Est, Montréal-Nord\r\n', 0, 0),
-(11, 'Hopital Catherine Booth de l Armee du Salut\r\n', '4375, avenue Montclair, Montreal\r\n', 0, 0),
-(12, 'Hopital Douglas\r\n', '6875, boulevard Lasalle, Verdun\r\n', 0, 0),
-(13, 'Hopital du Sacre-Coeur de Montreal\r\n', '5400, boulevard Gouin Ouest, Montreal\r\n', 0, 0),
-(14, 'Hopital Louis-H. Lafontaine\r\n', '7401, rue Hochelaga, Montreal\r\n', 0, 0),
-(15, 'Hopital Maisonneuve-Rosemont\r\n', '5415, boulevard de l Assomption, Montreal\r\n', 0, 0);
+(1, 'CHU Sainte-Justine', '3175, Chemin de la Cote-Sainte-Catherine, Montreal', '45.50393', '-73.62284'),
+(2, 'Hopital chinois de Montreal', '189, avenue Viger Est, Montreal', '45.50944', '-73.55749'),
+(3, 'Hopital Notre-Dame du CHUM', '1560, RUE Sherbrooke Est, Montréal', '45.52541', '-73.56454'),
+(4, 'Hotel-Dieu du CHUM', '3840, rue Saint-Urbain, Montreal', '45.51416', '-73.57717'),
+(5, 'Centre hospitalier de St. Mary', '3830, avenue Lacombe, Montreal', '45.49454', '-73.62525'),
+(6, 'Hopital general de Montreal', '1650, avenue Cedar, Montreal', '45.49990', '-73.58614'),
+(7, 'Hopital de Lachine', '650, 16e avenue, Lachine', '45.43536', '-73.69320'),
+(8, 'Hopital General du Lakeshore', '160, avenue Stillview, Pointe-Claire', '45.44986', '-73.83270'),
+(9, 'Hopital de Verdunn', '4000, Boulevard Lasalle, Verdun', '45.46410', '-73.56442'),
+(10, 'Hopital Marie Clarac', '3530, boulevard Gouin Est, Montréal-Nord', '45.59067', '-73.64870'),
+(11, 'Hopital Catherine Booth de l Armee du Salut', '4375, avenue Montclair, Montreal', '45.46318', '-73.63420'),
+(12, 'Hopital Douglas', '6875, boulevard Lasalle, Verdun', '45.44318', '-73.57770'),
+(13, 'Hopital du Sacre-Coeur de Montreal', '5400, boulevard Gouin Ouest, Montreal', '45.53260', '-73.71402'),
+(14, 'Hopital Louis-H. Lafontaine', '7401, rue Hochelaga, Montreal', '45.5889', '-73.5306'),
+(15, 'Hopital Maisonneuve-Rosemont', '5415, boulevard de l Assomption, Montreal', '45.57449', '-73.55866');
 
 -- --------------------------------------------------------
 
