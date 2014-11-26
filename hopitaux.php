@@ -9,13 +9,13 @@ if (mysqli_connect_errno()) {
 // Perform queries 
 $sth = mysqli_query($con, "SELECT * FROM hopital");
 
-echo("Error description: " . mysqli_error($con));
 
 $rows = array();
 while($r = mysqli_fetch_assoc($sth)) {
     $rows[] = $r;
 }
+print_r($rows);
 print json_encode($rows);
-
+echo("Error description: " . mysqli_error($con));
 mysqli_close($con);
 ?>
