@@ -15,7 +15,7 @@ while($r = mysqli_fetch_assoc($sth)) {
     $rows[] = $r;
 }
 
-$json = json_encode(utf8_encode($rows));
+$json = json_encode($rows);
 
 print json_last_error();
 print $json;

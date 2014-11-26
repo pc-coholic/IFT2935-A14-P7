@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS `alerte` (
   `numeroPatient` int(11) NOT NULL,
   PRIMARY KEY (`NumAlerte`),
   KEY `numeroClient` (`numeroPatient`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -53,7 +53,7 @@ CREATE TABLE IF NOT EXISTS `departements` (
   KEY `ID_D_2` (`ID`),
   KEY `ID_D_3` (`ID`),
   KEY `ID_H` (`ID_H`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `departements`
@@ -112,7 +112,7 @@ CREATE TABLE IF NOT EXISTS `evaluer` (
   KEY `ID_S_2` (`ID_S`),
   KEY `ID_I_2` (`ID_I`),
   KEY `ID_I` (`ID_I`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `evaluer`
@@ -149,7 +149,7 @@ CREATE TABLE IF NOT EXISTS `hopital` (
   `Latitude` int(11) NOT NULL,
   `Longitude` int(11) NOT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `hopital`
@@ -190,7 +190,7 @@ CREATE TABLE IF NOT EXISTS `infirmiere` (
   KEY `ID_D_3` (`ID_D`),
   KEY `ID` (`ID`),
   KEY `ID_D` (`ID_D`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `infirmiere`
@@ -249,7 +249,7 @@ CREATE TABLE IF NOT EXISTS `patient` (
   PRIMARY KEY (`numeroPatient`),
   UNIQUE KEY `NAS` (`numeroPatient`),
   KEY `TypeEnvoi` (`TypeEnvoi`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `patient`
@@ -283,7 +283,7 @@ CREATE TABLE IF NOT EXISTS `severite` (
   `ID` int(11) NOT NULL,
   `Description` text NOT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `severite`
@@ -306,7 +306,7 @@ CREATE TABLE IF NOT EXISTS `specialite` (
   `ID_H` int(11) NOT NULL,
   `Specialite` text NOT NULL,
   KEY `ID_H` (`ID_H`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -318,7 +318,7 @@ CREATE TABLE IF NOT EXISTS `typeenvoi` (
   `ID` int(11) NOT NULL,
   `Nom` varchar(14) NOT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `typeenvoi`
