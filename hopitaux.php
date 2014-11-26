@@ -10,3 +10,6 @@ print $json;
 
 $pdo = null;
 ?>
+aaaa
+ <?= $json ?>
+bbbb
