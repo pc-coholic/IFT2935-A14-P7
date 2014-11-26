@@ -11,7 +11,7 @@ if (mysqli_connect_errno())
 $sth = mysqli_query($con,"SELECT * FROM hopital");
 
 $rows = array();
-while($r = mysqli_fetch_assoc($sth)) {
+while($r = mysqli_fetch_assoc($con, $sth)) {
     $rows[] = $r;
 }
 print json_encode($rows);
