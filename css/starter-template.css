@@ -13,7 +13,7 @@ body {
 
 #LocateButton {
   position: absolute;
-  top: 95px;
-  left: 20px;
+  top: 205px;
+  left: 32px;
   z-index: 50;
  }
