@@ -56,7 +56,9 @@ check_auth();
     <div class="container-fluid">
       <div class="alert alert-danger" role="alert">Cette carte montre des hopitaux et temps d'attentes fictives! Communiquez toujours avec le <strong>911</strong> en cas d'urgence medicale!</div>
 
-      <div id="mapDiv"></div>
+      <div id="mapDiv">
+        <div id="LocateButton"></div>
+      </div>
 <!--
       <div class="starter-template">
         <h1>Bootstrap starter template</h1>
