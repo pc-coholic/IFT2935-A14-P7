@@ -76,14 +76,19 @@ check_auth();
         </script>
         <script src="https://js.arcgis.com/3.10compact"></script>
         <script>
-            require(["esri/map", "application/bootstrapmap", "dojo/domReady!"], 
-              function(Map, BootstrapMap) {
+            require(["esri/map", "application/bootstrapmap", "esri/dijit/LocateButton", "dojo/domReady!"], 
+              function(Map, BootstrapMap, LocateButton) {
                 // Get a reference to the ArcGIS Map class
                 var map = BootstrapMap.create("mapDiv",{
                   basemap:"osm",
                   center:[-73.5844, 45.5379],
                   zoom:12
                 });
+
+                geoLocate = new LocateButton({
+                  map: map
+                }, "LocateButton");
+                geoLocate.startup();
 
                 $.getJSON( "hopitaux.php", function( data ) {
                   $.each( data, function( key, val ) {
