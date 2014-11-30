@@ -144,6 +144,7 @@ check_auth();
                    outFields: ["Loc_name"]
                  };
                  locator.addressToLocations(options);
+                 $('#shortModal').modal('show');
                });
           
                function showResults(evt) {
