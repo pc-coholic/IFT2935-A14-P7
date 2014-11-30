@@ -145,6 +145,9 @@ check_auth();
                function showResults(evt) {
                  var symbol = new PictureMarkerSymbol('https://js.arcgis.com/3.10compact/js/esri/dijit/images/sdk_gps_location.png', 28, 28);
                  var geom;
+                 arrayUtils.every(evt.addresses, function(candidate) {
+                   console.log(candidate.score);
+                 });
                }
 
                $(".modal-wide").on("show.bs.modal", function() {
