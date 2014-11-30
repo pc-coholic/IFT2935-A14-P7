@@ -106,7 +106,10 @@ check_auth();
                   zoom:12
                 });
 
-               }
+                geoLocate = new LocateButton({
+                  map: map
+                }, "LocateButton");
+                geoLocate.startup();
 
                 $.getJSON( "hopitaux.php", function( data ) {
                   $.each( data, function( key, val ) {
@@ -115,25 +118,24 @@ check_auth();
                     
                     var symbol = new esri.symbol.SimpleMarkerSymbol().setSize(8).setColor(new dojo.Color([255, 0, 0]));
                     var graphic = new esri.Graphic(latLongPoint, symbol);
-
                     var infoTemplate = new esri.InfoTemplate();
                     infoTemplate.setTitle(val['Nom']);
                     infoTemplate.setContent(val['Adresse']);
-
                     graphic.setInfoTemplate(infoTemplate);
-
                     map.graphics.add(graphic);
                   });
                });
 
-              $(".modal-wide").on("show.bs.modal", function() {
-                var height = $(window).height() - 200;
-                $(this).find(".modal-body").css("max-height", height);
-              });
+               $(".modal-wide").on("show.bs.modal", function() {
+                 var height = $(window).height() - 200;
+                 $(this).find(".modal-body").css("max-height", height);
+               });
 
-              $(window).load(function(){
-                $('#shortModal').modal('show');
-              });
+               $(window).load(function(){
+                 $('#shortModal').modal('show');
+               });
+            });
+
         </script>
   
     <!-- Bootstrap core JavaScript
