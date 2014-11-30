@@ -126,11 +126,12 @@ check_auth();
 
                     $.getJSON( "departements.php?ID=" + val['ID'], function( data ) {
                       $.each( data, function( key, val ) {
+                        alert(val['Nom']);
                         content += '<button type="button" class="btn btn-default">' +  val['Nom'] + '</button>';
                       });
                     });
-                    alert(content);
-                    infoTemplate.setContent(val['Adresse'] + '<br>' + content);
+                    //infoTemplate.setContent(val['Adresse'] + '<br>' + content);
+                    infoTemplate.setContent(content);
                     graphic.setInfoTemplate(infoTemplate);
                     map.graphics.add(graphic);
                   });
