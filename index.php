@@ -135,9 +135,6 @@ check_auth();
                     graphic.setInfoTemplate(infoTemplate);
                     map.graphics.add(graphic);
                   });
-                  $(".deptselect").click( function() {
-                    alert($(this).val());
-                  });
                });
 
                locator = new Locator("https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer");
