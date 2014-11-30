@@ -122,7 +122,7 @@ check_auth();
                     var infoTemplate = new esri.InfoTemplate();
                     infoTemplate.setTitle(val['Nom']);
                     
-                    var content;
+                    var content = "";
 
                     $.getJSON( "departements.php?ID=" + val['ID'], function( data ) {
                       $.each( data, function( key, val ) {
