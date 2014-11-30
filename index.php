@@ -101,7 +101,7 @@ check_auth();
                      "esri/symbols/SimpleMarkerSymbol", "esri/symbols/PictureMarkerSymbol", "esri/symbols/Font", "esri/symbols/TextSymbol", 
                      "dojo/_base/array", "esri/Color", "dojo/number", "dojo/parser", "dojo/dom", "dijit/registry", "dojo/domReady!"],
 
-              function(Map, BootstrapMap, LocateButton, Locator, SimpleMarkerSymbol, PictureMarkerSymbol, Font, TextSymbol, arrayUtils, Color, number, parser, dom, registry) {
+              function(Map, BootstrapMap, LocateButton, Locator, Graphic, SimpleMarkerSymbol, PictureMarkerSymbol, Font, TextSymbol, arrayUtils, Color, number, parser, dom, registry) {
                 parser.parse();
                 // Get a reference to the ArcGIS Map class
                 var map = BootstrapMap.create("mapDiv",{
