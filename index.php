@@ -122,16 +122,17 @@ check_auth();
                     var infoTemplate = new esri.InfoTemplate();
                     infoTemplate.setTitle(val['Nom']);
                     
-                    var content = "";
 
                     $.getJSON( "departements.php?ID=" + val['ID'], function( data ) {
+                      var content = "";
+                      
                       $.each( data, function( key, val ) {
-                        alert(val['Nom']);
                         content += '<button type="button" class="btn btn-default">' +  val['Nom'] + '</button>';
                       });
+
+                      infoTemplate.setContent(content);
                     });
                     //infoTemplate.setContent(val['Adresse'] + '<br>' + content);
-                    infoTemplate.setContent(content);
                     graphic.setInfoTemplate(infoTemplate);
                     map.graphics.add(graphic);
                   });
