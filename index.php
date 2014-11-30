@@ -149,8 +149,8 @@ check_auth();
                function showResults(evt) {
                  var symbol = new PictureMarkerSymbol('https://js.arcgis.com/3.10compact/js/esri/dijit/images/sdk_gps_location.png', 28, 28);
                  var geom;
-                 console.log(evt.addresses);
-                 arrayUtils.every(evt.addresses, function(candidate) {
+                 //arrayUtils.every(evt.addresses, function(candidate) {
+                 $.each( evt.addresses, function(i, candidate) {
                    console.log(candidate.score);
                    if (candidate.score > 80) {
                      console.log(candidate.location);
