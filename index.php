@@ -127,7 +127,6 @@ check_auth();
                     $.getJSON( "departements.php?ID=" + val['ID'], function( data ) {
                       $.each( data, function( key, val ) {
                         content += '<button type="button" class="btn btn-default">' +  val['Nom'] + '</button>';
-i
                       });
                     });
                     
