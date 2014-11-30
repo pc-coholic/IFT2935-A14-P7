@@ -117,14 +117,10 @@ check_auth();
                   $.each( data, function( key, val ) {
                     //alert(val['Nom']);
                     var latLongPoint = new esri.geometry.Point(val['Longitude'], val['Latitude']);
-                    //var latLongPoint = new Point(val['Longitude'], val['Latitude']);
                     
                     var symbol = new esri.symbol.SimpleMarkerSymbol().setSize(8).setColor(new dojo.Color([255, 0, 0]));
-                    //var symbol = new SimpleMarkerSymbol().setSize(8).setColor(new dojo.Color([255, 0, 0]));
-                    //var graphic = new esri.Graphic(latLongPoint, symbol);
-                    var graphic = new Graphic(latLongPoint, symbol);
-                    //var infoTemplate = new esri.InfoTemplate();
-                    var infoTemplate = new InfoTemplate();
+                    var graphic = new esri.Graphic(latLongPoint, symbol);
+                    var infoTemplate = new esri.InfoTemplate();
                     infoTemplate.setTitle(val['Nom']);
                     infoTemplate.setContent(val['Adresse']);
                     graphic.setInfoTemplate(infoTemplate);
