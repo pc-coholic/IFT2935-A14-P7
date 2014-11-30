@@ -97,8 +97,10 @@ check_auth();
         </script>
         <script src="https://js.arcgis.com/3.10compact"></script>
         <script>
-            require(["esri/map", "application/bootstrapmap", "esri/dijit/LocateButton", "esri/tasks/locator", "esri/symbols/PictureMarkerSymbol", "dojo/domReady!"],
-              function(Map, BootstrapMap, LocateButton, Locator, PictureMarkerSymbol) {
+            require(["esri/map", "application/bootstrapmap", "esri/dijit/LocateButton", "esri/tasks/locator", "esri/graphic", 
+                     "esri/symbols/PictureMarkerSymbol", "esri/symbols/Font", "esri/symbols/TextSymbol", "dojo/_base/array", "esri/Color", "dojo/domReady!"],
+
+              function(Map, BootstrapMap, LocateButton, Locator, PictureMarkerSymbol, Font, TextSymbol, arrayUtils, Color) {
                 // Get a reference to the ArcGIS Map class
                 var map = BootstrapMap.create("mapDiv",{
                   basemap:"osm",
