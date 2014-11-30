@@ -120,11 +120,11 @@ check_auth();
                     var symbol = new esri.symbol.SimpleMarkerSymbol().setSize(8).setColor(new dojo.Color([255, 0, 0]));
                     var graphic = new esri.Graphic(latLongPoint, symbol);
                     var infoTemplate = new esri.InfoTemplate();
-                    infoTemplate.setTitle(val['Nom'] + "<br>" + val['Adresse']);
+                    infoTemplate.setTitle(val['Nom']);
+                    var address = val['Adresse'];
                     
-
                     $.getJSON( "departements.php?ID=" + val['ID'], function( data ) {
-                      var content = "";
+                      var content = address + '<br><br>';
                       
                       $.each( data, function( key, val ) {
                         content += '<button type="button" class="btn btn-default">' +  val['Nom'] + '</button>';
