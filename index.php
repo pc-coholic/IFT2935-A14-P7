@@ -67,6 +67,25 @@ check_auth();
 -->
     </div><!-- /.container -->
 
+      <div id="shortModal" class="modal modal-wide fade">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              <h4 class="modal-title">Bienvenue sur le site de gestion des salles d'attentes</h4>
+              <h5>Welcome to the waiting room manager of Montreal</h5>
+            </div>
+            <div class="modal-body">
+            <form class="col-lg-12">
+              <div class="input-group input-group-lg col-sm-offset-4 col-sm-4">
+                <input type="text" class="center-block form-control input-lg" title="Entrez votre code postal." placeholder="Entrez votre code postal." id="address">
+                <span class="input-group-btn"><button class="btn btn-lg btn-primary" data-dismiss="modal" type="button" id="locate">OK</button></span>
+              </div>
+            </form>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
      <script type="text/javascript">
             var package_path = "//esri.github.io/bootstrap-map-js/src/js";
             var dojoConfig = {
@@ -78,8 +97,8 @@ check_auth();
         </script>
         <script src="https://js.arcgis.com/3.10compact"></script>
         <script>
-            require(["esri/map", "application/bootstrapmap", "esri/dijit/LocateButton", "dojo/domReady!"], 
-              function(Map, BootstrapMap, LocateButton) {
+            require(["esri/map", "application/bootstrapmap", "esri/dijit/LocateButton", "esri/tasks/locator", "dojo/domReady!"], 
+              function(Map, BootstrapMap, LocateButton, Locator) {
                 // Get a reference to the ArcGIS Map class
                 var map = BootstrapMap.create("mapDiv",{
                   basemap:"osm",
@@ -91,6 +110,72 @@ check_auth();
                   map: map
                 }, "LocateButton");
                 geoLocate.startup();
+
+                locator = new Locator("http://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer");
+                locator.on("address-to-locations-complete", showResults);
+
+                // listen for button click then geocode
+                registry.byId("locate").on("click", locate);
+                function locate() {
+                  map.graphics.clear();
+                  var address = {
+                    "SingleLine": dom.byId("address").value
+                  };
+                  locator.outSpatialReference = map.spatialReference;
+                  var options = {
+                    address: address,
+                    outFields: ["Loc_name"]
+                  };
+                  locator.addressToLocations(options);
+                }
+
+                function showResults(evt) {
+                  var symbol = new SimpleMarkerSymbol();
+                  var infoTemplate = new InfoTemplate(
+                    "Location", 
+                    "Address: ${address}<br />Score: ${score}<br />Source locator: ${locatorName}"
+                  );
+                  symbol.setStyle(SimpleMarkerSymbol.STYLE_SQUARE);
+                  symbol.setColor(new Color([153,0,51,0.75]));
+
+                  var geom;
+                  arrayUtils.every(evt.addresses, function(candidate) {
+                    console.log(candidate.score);
+                    if (candidate.score > 80) {
+                      console.log(candidate.location);
+                      var attributes = { 
+                        address: candidate.address, 
+                        score: candidate.score, 
+                        locatorName: candidate.attributes.Loc_name 
+                      };   
+                      geom = candidate.location;
+                      var graphic = new Graphic(geom, symbol, attributes, infoTemplate);
+                      //add a graphic to the map at the geocoded location
+                      map.graphics.add(graphic);
+                      //add a text symbol to the map listing the location of the matched address.
+                      var displayText = candidate.address;
+                      var font = new Font(
+                        "16pt",
+                        Font.STYLE_NORMAL, 
+                        Font.VARIANT_NORMAL,
+                        Font.WEIGHT_BOLD,
+                        "Helvetica"
+                      );
+                     
+                      var textSymbol = new TextSymbol(
+                        displayText,
+                        font,
+                        new Color("#666633")
+                      );
+                      textSymbol.setOffset(0,8);
+                      map.graphics.add(new Graphic(geom, textSymbol));
+                      return false; //break out of loop after one candidate with score greater  than 80 is found.
+                    }
+                  });
+                  if ( geom !== undefined ) {
+                    map.centerAndZoom(geom, 12);
+                  }
+                }
 
                 $.getJSON( "hopitaux.php", function( data ) {
                   $.each( data, function( key, val ) {
@@ -109,6 +194,15 @@ check_auth();
                     map.graphics.add(graphic);
                   });
                });
+            });
+
+            $(".modal-wide").on("show.bs.modal", function() {
+              var height = $(window).height() - 200;
+              $(this).find(".modal-body").css("max-height", height);
+            });
+
+            $(window).load(function(){
+              $('#shortModal').modal('show');
             });
         </script>
   
