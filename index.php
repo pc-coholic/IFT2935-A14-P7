@@ -144,6 +144,7 @@ check_auth();
                function showResults(evt) {
                  var symbol = new new PictureMarkerSymbol('https://js.arcgis.com/3.10compact/js/esri/dijit/images/sdk_gps_location.png', 28, 28);
                  var geom;
+/*
                  arrayUtils.every(evt.addresses, function(candidate) {
                    console.log(candidate.score);
                    if (candidate.score > 80) {
@@ -180,7 +181,8 @@ check_auth();
                  });
                  if ( geom !== undefined ) {
                    map.centerAndZoom(geom, 12);
-                 }        
+                 }
+*/ 
                }
 
                $(".modal-wide").on("show.bs.modal", function() {
