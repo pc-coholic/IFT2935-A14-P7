@@ -124,13 +124,14 @@ check_auth();
                     
                     var content;
 
-                    $.getJSON( "departements.php?ID=" . val['ID'], function( data) {
+                    $.getJSON( "departements.php?ID=" + val['ID'], function( data ) {
                       $.each( data, function( key, val ) {
-                        content += '<button type="button" class="btn btn-default">' . val['Nom'] . '</button>';
+                        content += '<button type="button" class="btn btn-default">' +  val['Nom'] + '</button>';
+i
                       });
                     });
                     
-                    infoTemplate.setContent(val['Adresse'] . '<br>' . content);
+                    infoTemplate.setContent(val['Adresse'] + '<br>' + content);
                     graphic.setInfoTemplate(infoTemplate);
                     map.graphics.add(graphic);
                   });
