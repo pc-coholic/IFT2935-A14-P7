@@ -124,7 +124,7 @@ check_auth();
                     infoTemplate.setTitle(val['Nom']);
                     infoTemplate.setContent(val['Adresse']);
                     graphic.setInfoTemplate(infoTemplate);
-                    map.graphics.add(graphic);
+                    //map.graphics.add(graphic);
                   });
                });
 
