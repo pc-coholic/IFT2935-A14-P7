@@ -97,8 +97,9 @@ check_auth();
         </script>
         <script src="https://js.arcgis.com/3.10compact"></script>
         <script>
-            require(["esri/map", "application/bootstrapmap", "esri/dijit/LocateButton", "esri/tasks/locator", "esri/symbols/PictureMarkerSymbol", "dojo/domReady!"], 
-              function(Map, BootstrapMap, LocateButton, PictureMarkerSymbol, Locator) {
+            require(["esri/map", "application/bootstrapmap", "esri/dijit/LocateButton", "esri/tasks/locator", 
+                     "esri/graphic","esri/symbols/PictureMarkerSymbol", "esri/symbols/Font", "esri/symbols/TextSymbol", "esri/Color", "dojo/domReady!"], 
+              function(Map, BootstrapMap, LocateButton, Graphic, PictureMarkerSymbol, Locator, Font, TextSymbol, Color) {
                 // Get a reference to the ArcGIS Map class
                 var map = BootstrapMap.create("mapDiv",{
                   basemap:"osm",
@@ -153,7 +154,8 @@ check_auth();
                        locatorName: candidate.attributes.Loc_name 
                      };   
                      geom = candidate.location;
-                     var graphic = new Graphic(geom, symbol, attributes, infoTemplate);
+                     //var graphic = new Graphic(geom, symbol, attributes, infoTemplate);
+                     var graphic = new Graphic(geom, symbol, attributes);
                      //add a graphic to the map at the geocoded location
                      map.graphics.add(graphic);
                      //add a text symbol to the map listing the location of the matched address.
