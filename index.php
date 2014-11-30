@@ -145,43 +145,6 @@ check_auth();
                function showResults(evt) {
                  var symbol = new PictureMarkerSymbol('https://js.arcgis.com/3.10compact/js/esri/dijit/images/sdk_gps_location.png', 28, 28);
                  var geom;
-                 arrayUtils.every(evt.addresses, function(candidate) {
-                   console.log(candidate.score);
-                   if (candidate.score > 80) {
-                     console.log(candidate.location);
-                     var attributes = { 
-                       address: candidate.address, 
-                       score: candidate.score, 
-                       locatorName: candidate.attributes.Loc_name 
-                     };   
-                     geom = candidate.location;
-                     //var graphic = new Graphic(geom, symbol, attributes, infoTemplate);
-                     var graphic = new Graphic(geom, symbol, attributes);
-                     //add a graphic to the map at the geocoded location
-                     map.graphics.add(graphic);
-                     //add a text symbol to the map listing the location of the matched address.
-                     var displayText = candidate.address;
-                     var font = new Font(
-                       "16pt",
-                       Font.STYLE_NORMAL, 
-                       Font.VARIANT_NORMAL,
-                       Font.WEIGHT_BOLD,
-                       "Helvetica"
-                     );
-                    
-                     var textSymbol = new TextSymbol(
-                       displayText,
-                       font,
-                       new Color("#666633")
-                     );
-                     textSymbol.setOffset(0,8);
-                     map.graphics.add(new Graphic(geom, textSymbol));
-                     return false; //break out of loop after one candidate with score greater  than 80 is found.
-                   }
-                 });
-                 if ( geom !== undefined ) {
-                   map.centerAndZoom(geom, 12);
-                 }
                }
 
                $(".modal-wide").on("show.bs.modal", function() {
