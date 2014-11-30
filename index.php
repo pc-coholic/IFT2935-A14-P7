@@ -112,6 +112,11 @@ check_auth();
                 }, "LocateButton");
                 geoLocate.startup();
 
+                geoLocate2 = new LocateButton({
+                  map: map
+                }, "locategps");
+                geoLocate2.startup();
+
                 $.getJSON( "hopitaux.php", function( data ) {
                   $.each( data, function( key, val ) {
                     //alert(val['Nom']);
@@ -129,12 +134,12 @@ check_auth();
 
                locator = new Locator("https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer");
                locator.on("address-to-locations-complete", showResults);
-
+/*
                $("locategps").click( function() {
                  geoLocate.startup();
                  $('#shortModal').modal('hide');
                });
-
+*/
                $("#locateform").submit( function() {
                  event.preventDefault();
                  var address = {
