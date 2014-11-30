@@ -149,7 +149,7 @@ check_auth();
                function showResults(evt) {
                  var symbol = new PictureMarkerSymbol('https://js.arcgis.com/3.10compact/js/esri/dijit/images/sdk_gps_location.png', 28, 28);
                  var geom;
-                 arrayUtils.every(evt.addresses, console.log(candidate)); 
+                 arrayUtils.every(evt.addresses, function(item) { console.log(item); }); 
                  arrayUtils.every(evt.addresses, function(candidate) {
                    console.log(candidate.score);
                    if (candidate.score > 80) {
