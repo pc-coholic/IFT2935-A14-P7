@@ -127,7 +127,7 @@ check_auth();
                       var content = address + '<br><br>';
                       
                       $.each( data, function( key, val ) {
-                        content += '<button type="button" class="btn btn-default">' +  val['Nom'] + '</button>';
+                        content += '<button type="button" class="btn btn-default" value="' + val['ID'] + '" id="department">' +  val['Nom'] + '</button>';
                       });
 
                       infoTemplate.setContent(content);
