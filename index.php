@@ -121,7 +121,16 @@ check_auth();
                     var graphic = new esri.Graphic(latLongPoint, symbol);
                     var infoTemplate = new esri.InfoTemplate();
                     infoTemplate.setTitle(val['Nom']);
-                    infoTemplate.setContent(val['Adresse']);
+                    
+                    var content;
+
+                    $.getJSON( "departements.php?ID=" . val['ID'], function( data) {
+                      $.each( data, function( key, val ) {
+                        content += '<button type="button" class="btn btn-default">' . val['Nom'] . '</button>';
+                      });
+                    });
+                    
+                    infoTemplate.setContent(val['Adresse'] . '<br>' . content);
                     graphic.setInfoTemplate(infoTemplate);
                     map.graphics.add(graphic);
                   });
