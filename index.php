@@ -143,6 +143,7 @@ check_auth();
                });
           
                function showResults(evt) {
+                 alert("foobar");
                  var symbol = new new PictureMarkerSymbol('https://js.arcgis.com/3.10compact/js/esri/dijit/images/sdk_gps_location.png', 28, 28);
                  var infoTemplate = new InfoTemplate(
                    "Location", 
