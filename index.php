@@ -127,7 +127,7 @@ check_auth();
                       var content = address + '<br><br>';
                       
                       $.each( data, function( key, val ) {
-                        content += '<button type="submit" class="btn btn-default" value="' + val['ID'] + '">' +  val['Nom'] + '</button>'
+                        content += '<button type="button" class="btn btn-default deptselect" value="' + val['ID'] + '">' +  val['Nom'] + '</button>'
                       });
 
                       infoTemplate.setContent(content);
@@ -143,6 +143,10 @@ check_auth();
                $("locategps").click( function() {
                  geoLocate._locate();
                  $('#shortModal').modal('hide');
+               });
+
+               $(".deptselect").click( function() {
+                 alert($(this).val());
                });
 
                $("#locateform").submit( function() {
