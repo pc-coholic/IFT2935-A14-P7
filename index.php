@@ -126,7 +126,7 @@ check_auth();
                   });
                });
 
-               locator = new Locator("http://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer");
+               locator = new Locator("https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer");
                locator.on("address-to-locations-complete", showResults);
 
                $("#locateform").submit(function() {
