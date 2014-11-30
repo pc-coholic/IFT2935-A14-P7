@@ -120,7 +120,7 @@ check_auth();
                     var symbol = new esri.symbol.SimpleMarkerSymbol().setSize(8).setColor(new dojo.Color([255, 0, 0]));
                     var graphic = new esri.Graphic(latLongPoint, symbol);
                     var infoTemplate = new esri.InfoTemplate();
-                    infoTemplate.setTitle(val['Nom']);
+                    infoTemplate.setTitle(val['Nom'] + "<br>" + val['Adresse']);
                     
 
                     $.getJSON( "departements.php?ID=" + val['ID'], function( data ) {
@@ -132,7 +132,6 @@ check_auth();
 
                       infoTemplate.setContent(content);
                     });
-                    //infoTemplate.setContent(val['Adresse'] + '<br>' + content);
                     graphic.setInfoTemplate(infoTemplate);
                     map.graphics.add(graphic);
                   });
