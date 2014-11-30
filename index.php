@@ -71,7 +71,7 @@ check_auth();
             </div>
             <div class="modal-body">
             <form class="col-lg-12" id="locateform">
-              <div class="input-group input-group-lg col-sm-offset-4 col-sm-4">
+              <div class="input-group input-group-lg col-sm-offset-3 col-sm-6">
                 <input type="text" class="center-block form-control input-lg" title="Entrez votre code postal." placeholder="Entrez votre code postal." id="address">
                 <span class="input-group-btn">
                   <button class="btn btn-lg btn-primary" type="submit">Localisation par code postal</button>
