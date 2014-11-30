@@ -129,7 +129,7 @@ check_auth();
                         content += '<button type="button" class="btn btn-default">' +  val['Nom'] + '</button>';
                       });
                     });
-                    
+                    alert(content);
                     infoTemplate.setContent(val['Adresse'] + '<br>' + content);
                     graphic.setInfoTemplate(infoTemplate);
                     map.graphics.add(graphic);
