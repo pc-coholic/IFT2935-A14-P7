@@ -144,6 +144,11 @@ check_auth();
           
                function showResults(evt) {
                  var symbol = new new PictureMarkerSymbol('https://js.arcgis.com/3.10compact/js/esri/dijit/images/sdk_gps_location.png', 28, 28);
+                 var infoTemplate = new InfoTemplate(
+                   "Location", 
+                   "Address: ${address}<br />Score: ${score}<br />Source locator: ${locatorName}"
+                 );
+
                  var geom;
                  arrayUtils.every(evt.addresses, function(candidate) {
                    console.log(candidate.score);
@@ -155,8 +160,7 @@ check_auth();
                        locatorName: candidate.attributes.Loc_name 
                      };   
                      geom = candidate.location;
-                     //var graphic = new Graphic(geom, symbol, attributes, infoTemplate);
-                     var graphic = new Graphic(geom, symbol, attributes);
+                     var graphic = new Graphic(geom, symbol, attributes, infoTemplate);
                      //add a graphic to the map at the geocoded location
                      map.graphics.add(graphic);
                      //add a text symbol to the map listing the location of the matched address.
