@@ -138,7 +138,6 @@ check_auth();
                    outFields: ["Loc_name"]
                  };
                  locator.addressToLocations(options);
-                 }
                });
           
                function showResults(evt) {
