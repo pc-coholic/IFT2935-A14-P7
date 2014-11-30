@@ -59,12 +59,6 @@ check_auth();
       <div id="mapDiv">
         <div id="LocateButton"></div>
       </div>
-<!--
-      <div class="starter-template">
-        <h1>Bootstrap starter template</h1>
-        <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
-      </div>
--->
     </div><!-- /.container -->
 
       <div id="shortModal" class="modal modal-wide fade">
@@ -79,7 +73,10 @@ check_auth();
             <form class="col-lg-12" id="locateform">
               <div class="input-group input-group-lg col-sm-offset-4 col-sm-4">
                 <input type="text" class="center-block form-control input-lg" title="Entrez votre code postal." placeholder="Entrez votre code postal." id="address">
-                <span class="input-group-btn"><button class="btn btn-lg btn-primary" type="submit">OK</button></span>
+                <span class="input-group-btn">
+                  <button class="btn btn-lg btn-primary" type="submit">Localisation par code postal</button>
+                  <button class="btn btn-lg btn-info" id="locategps"><span class="glyphicon glyphicon-record" aria-hidden="true"></span> Localisation par GPS</button>
+                </span>
               </div>
             </form>
           </div>
@@ -133,7 +130,12 @@ check_auth();
                locator = new Locator("https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer");
                locator.on("address-to-locations-complete", showResults);
 
-               $("#locateform").submit(function() {
+               $("locategps").click( function() {
+                 geoLocate.startup();
+                 $('#shortModal').modal('hide');
+               });
+
+               $("#locateform").submit( function() {
                  event.preventDefault();
                  var address = {
                    "SingleLine": $("#address").val()
