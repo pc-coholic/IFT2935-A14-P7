@@ -69,8 +69,8 @@ check_auth();
           <div class="modal-content">
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-              <h4 class="modal-title">Bienvenue sur le site de gestion des salles d'attentes</h4>
-              <h5>Welcome to the waiting room manager of Montreal</h5>
+              <h4 class="modal-title text-center">Bienvenue sur le site de gestion des salles d'attentes</h4>
+              <h5 class="text-center">Welcome to the waiting room manager of Montreal</h5>
             </div>
             <div class="modal-body">
             <form class="col-lg-12" id="locateform">
