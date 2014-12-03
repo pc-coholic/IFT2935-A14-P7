@@ -131,7 +131,7 @@ check_auth();
                         content += '<button type="button" class="btn btn-default deptselect" onclick="showAttente(' + hopital + ', ' + val['ID'] + ');">' +  val['Nom'] + '</button>';
                       });
                       
-                      content = '<div id="attente_' + val['ID'] + '">&nbsp;</div>';
+                      content += '<div id="attente_' + val['ID'] + '">&nbsp;</div>';
                       infoTemplate.setContent(content);
                     });
                     graphic.setInfoTemplate(infoTemplate);
