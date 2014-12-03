@@ -47,7 +47,7 @@ check_auth();
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav navbar-left">
-              <li><?= getenv('HEAD_HASH') ?></li>
+              <li><a><?= getenv('HEAD_HASH') ?></a></li>
           </ul>
          <ul class="nav navbar-nav navbar-right">
               <li><a href="https://identification.umontreal.ca/cas/logout.ashx">Logout <?= $_SESSION['user'][0] ?></a></li>
