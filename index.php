@@ -132,6 +132,7 @@ check_auth();
                       });
                       
                       content += '<br><div id="attente_' + hopital + '">&nbsp;</div>';
+                      content += '<br><div id="updated_' + hopital + '">&nbsp;</div>';
                       infoTemplate.setContent(content);
                     });
                     graphic.setInfoTemplate(infoTemplate);
@@ -215,7 +216,8 @@ check_auth();
             });
             
             function showAttente(hopital, departement) {
-                $("#attente_" + hopital).html('<div class="alert alert-success">Temps d\'attente ici.<br><br>Dernière mise à jour: ' + Date() + '</div>');
+                $("#attente_" + hopital).html('<div class="alert alert-success">Temps d\'attente ici.</div>');
+                $("#updated_" + hopital).html('<div class="well well-sm">Dernière mise à jour: ' + Date() + '</div>');
 /*
               $.getJSON( "attente.php?ID=" + departement, function( data ) {
                 $.each( data, function( key, val ) {
