@@ -48,7 +48,7 @@ check_auth();
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav navbar-left">
               <li><a onclick="showNotifyModal();">Notification</a></li>
-              <li><a><?= substr(getenv('HEAD_HASH'), 0, 8) ?></a></li>
+              <li><a><span class="label label-default">GIT Commit SHA: <?= substr(getenv('HEAD_HASH'), 0, 8) ?></span></a></li>
           </ul>
          <ul class="nav navbar-nav navbar-right">
               <li><a href="https://identification.umontreal.ca/cas/logout.ashx">Logout <?= $_SESSION['user'][0] ?></a></li>
