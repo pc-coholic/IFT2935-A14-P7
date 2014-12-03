@@ -122,14 +122,16 @@ check_auth();
                     var infoTemplate = new esri.InfoTemplate();
                     infoTemplate.setTitle(val['Nom']);
                     var address = val['Adresse'];
+                    var hopital = val['ID'];
                     
                     $.getJSON( "departements.php?ID=" + val['ID'], function( data ) {
                       var content = address + '<br><br>';
                       
                       $.each( data, function( key, val ) {
-                        content += '<button type="button" class="btn btn-default deptselect" onclick="foobar(\'alarm!\');">' +  val['Nom'] + '</button>'
+                        content += '<button type="button" class="btn btn-default deptselect" onclick="showAttente(' + hopital + ', ' + val['ID'] + ');">' +  val['Nom'] + '</button>'
                       });
-
+                      
+                      content = '<div id="attente_' + val['ID'] + '">&nbsp;</div>';
                       infoTemplate.setContent(content);
                     });
                     graphic.setInfoTemplate(infoTemplate);
@@ -212,8 +214,9 @@ check_auth();
                });
             });
             
-            function foobar(bla) {
-              alert(bla);
+            function showAttente(hopital, departement) {
+              alert(hopital);
+              alert(departement);
             }
         </script>
   
