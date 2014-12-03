@@ -99,13 +99,13 @@ check_auth();
               <div class="form-group">
                 <label for="inputNoPatient3" class="col-sm-2 control-label">Numero patient</label>
                 <div class="col-sm-10">
-                  <input type="number" class="form-control" id="inputNoPatient3" placeholder="Numero patient">
+                  <input type="number" class="form-control" id="inputNoPatient3" name="inputNoPatient3" placeholder="Numero patient">
                 </div>
               </div>
               <div class="form-group">
                 <label for="selectModeEnvoie3" class="col-sm-2 control-label">Mode d'envoie</label>
                 <div class="col-sm-10">
-                  <select class="form-control" id="selectModeEnvoie3">
+                  <select class="form-control" id="selectModeEnvoie3" name="selectModeEnvoie3">
                     <option>tel</option>
                     <option>email</option>
                   </select>
@@ -114,7 +114,7 @@ check_auth();
               <div class="form-group">
                 <label for="selectNoPatients3" class="col-sm-2 control-label">Nombre de patients</label>
                 <div class="col-sm-10">
-                  <select class="form-control" id="selectNoPatients3">
+                  <select class="form-control" id="selectNoPatients3" name="selectNoPatients3">
                     <option>1</option>
                     <option>2</option>
                     <option>3</option>
