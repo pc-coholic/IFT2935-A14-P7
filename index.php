@@ -95,7 +95,7 @@ check_auth();
             <h4 class="modal-title text-center">Notification</h4>
           </div>
           <div class="modal-body">
-            <form class="form-horizontal" role="form">
+            <form class="form-horizontal" role="form" id="notifyForm">
               <div class="form-group">
                 <label for="inputNoPatient3" class="col-sm-2 control-label">Numero patient</label>
                 <div class="col-sm-10">
@@ -296,6 +296,12 @@ check_auth();
       function showNotifyModal() {
         $("#notifyModal").modal('show');
       }
+
+      $("#notifyForm").submit( function() {
+        event.preventDefault();
+        $.post("notification.php", $("#notifyForm").serialize() );
+        $('#notifyModal').modal('hide');
+      });
     </script>
   
     <!-- Bootstrap core JavaScript
