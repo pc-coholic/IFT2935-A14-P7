@@ -47,6 +47,7 @@ check_auth();
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav navbar-left">
+              <li><a onclick="showNotifyModal();">Notification</a></li>
               <li><a><?= substr(getenv('HEAD_HASH'), 0, 8) ?></a></li>
           </ul>
          <ul class="nav navbar-nav navbar-right">
@@ -64,7 +65,7 @@ check_auth();
       </div>
     </div><!-- /.container -->
 
-    <div id="shortModal" class="modal modal-wide fade">
+    <div id="locateModal" class="modal modal-wide fade">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
@@ -86,6 +87,24 @@ check_auth();
         </div><!-- /.modal-content -->
       </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
+    <div id="notifyModal" class="modal modal-wide fade" style="display: none;">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title text-center">Notification</h4>
+          </div>
+          <div class="modal-body">
+            <form class="col-lg-12" id="locateform">
+              <div class="input-group input-group-lg col-sm-offset-3 col-sm-6">
+                <span>Foobar</span>
+              </div>
+            </form>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
     <script type="text/javascript">
       var package_path = "//esri.github.io/bootstrap-map-js/src/js";
       var dojoConfig = {
@@ -148,7 +167,7 @@ check_auth();
 
         $("locategps").click( function() {
           geoLocate._locate();
-          $('#shortModal').modal('hide');
+          $('#locateModal').modal('hide');
         });
 
         $("#locateform").submit( function() {
@@ -162,7 +181,7 @@ check_auth();
             outFields: ["Loc_name"]
           };
           locator.addressToLocations(options);
-          $('#shortModal').modal('hide');
+          $('#locateModal').modal('hide');
         });
 
         function showResults(evt) {
@@ -215,7 +234,7 @@ check_auth();
         });
 
         $(window).load(function(){
-          $('#shortModal').modal('show');
+          $('#locateModal').modal('show');
         });
       });
          
@@ -228,6 +247,10 @@ check_auth();
           $("#attente_" + hopital).html(content);
         });
         $("#updated_" + hopital).html('<div class="well well-sm">Dernière mise à jour: ' + Date() + '</div>');
+      }
+      
+      function showNotifyModal() {
+        $("#notifyModal").modal('show');
       }
     </script>
   
