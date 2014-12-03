@@ -95,7 +95,7 @@ check_auth();
             <h4 class="modal-title text-center">Notification</h4>
           </div>
           <div class="modal-body">
-            <form class="form-horizontal" role="form" id="notifyForm">
+            <form class="form-horizontal" role="form" id="notifyform">
               <div class="form-group">
                 <label for="inputNoPatient3" class="col-sm-2 control-label">Numero patient</label>
                 <div class="col-sm-10">
@@ -227,6 +227,12 @@ check_auth();
           locator.addressToLocations(options);
           $('#locateModal').modal('hide');
         });
+  
+        $("#notifyform").submit( function() {
+          event.preventDefault();
+          $.post("notification.php", $("#notiyform").serialize() );
+          $('#notifyModal').modal('hide');
+        });
 
         function showResults(evt) {
           var symbol = new PictureMarkerSymbol('https://js.arcgis.com/3.10compact/js/esri/dijit/images/sdk_gps_location.png', 28, 28);
@@ -297,11 +303,6 @@ check_auth();
         $("#notifyModal").modal('show');
       }
 
-      $("#notifyForm").submit( function() {
-        event.preventDefault();
-        $.post("notification.php", $("#notifyForm").serialize() );
-        $('#notifyModal').modal('hide');
-      });
     </script>
   
     <!-- Bootstrap core JavaScript
