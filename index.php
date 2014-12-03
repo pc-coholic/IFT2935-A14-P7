@@ -221,9 +221,9 @@ check_auth();
             function showAttente(hopital, departement) {
 
               $.getJSON( "attente.php?ID=" + departement, function( data ) {
-                var content; 
+                var content = ""; 
                 $.each( data, function( key, val ) {
-                  content += '<div class="alert alert-' + val['Label'] + '">' + val['Severite'] + '</div>';
+                  content += '<div class="alert alert-' + val['Label'] + '">' + val['Description'] + '</div>';
                 });
                 $("#attente_" + hopital).html(content);
               });
