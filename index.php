@@ -230,7 +230,7 @@ check_auth();
   
         $("#notifyform").submit( function() {
           event.preventDefault();
-          $.post("notification.php", $("#notiyform").serialize() );
+          $.post("notification.php", $("#notifyform").serialize() );
           $('#notifyModal').modal('hide');
         });
 
