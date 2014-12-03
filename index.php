@@ -132,7 +132,7 @@ check_auth();
                       });
                       
                       content += '<br><div id="attente_' + hopital + '">&nbsp;</div>';
-                      content += '<br><div id="updated_' + hopital + '">&nbsp;</div>';
+                      content += '<div id="updated_' + hopital + '">&nbsp;</div>';
                       infoTemplate.setContent(content);
                     });
                     graphic.setInfoTemplate(infoTemplate);
