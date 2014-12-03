@@ -128,7 +128,7 @@ check_auth();
                       var content = address + '<br><br>';
                       
                       $.each( data, function( key, val ) {
-                        content += '<button type="button" class="btn btn-default deptselect" onclick="showAttente(' + hopital + ', ' + val['ID'] + ');">' +  val['Nom'] + '</button>'
+                        content += '<button type="button" class="btn btn-default deptselect" onclick="showAttente(' + hopital + ', ' + val['ID'] + ');">' +  val['Nom'] + '</button>';
                       });
                       
                       content = '<div id="attente_' + val['ID'] + '">&nbsp;</div>';
