@@ -215,7 +215,7 @@ check_auth();
             });
             
             function showAttente(hopital, departement) {
-              $("#attente_" + hopital).replaceWith('<div class="color-swatch brand-primary">Temps d\'attente ici.</div>');
+              $("#attente_" + hopital).html('<div class="alert alert-success">Temps d\'attente ici.</div>');
 /*
               $.getJSON( "attente.php?ID=" + departement, function( data ) {
                 $.each( data, function( key, val ) {
