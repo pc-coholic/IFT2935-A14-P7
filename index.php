@@ -219,15 +219,15 @@ check_auth();
             });
             
             function showAttente(hopital, departement) {
-                $("#attente_" + hopital).html('<div class="alert alert-success">Temps d\'attente ici.</div>');
-                $("#updated_" + hopital).html('<div class="well well-sm">Dernière mise à jour: ' + Date() + '</div>');
-/*
+
               $.getJSON( "attente.php?ID=" + departement, function( data ) {
+                var content; 
                 $.each( data, function( key, val ) {
-                  // Magic happens here
+                  content += '<div class="alert alert-' + val['Label'] + '">' + val['Severite'] + '</div>';
                 });
+                $("#attente_" + hopital).html(content);
               });
-*/
+              $("#updated_" + hopital).html('<div class="well well-sm">Dernière mise à jour: ' + Date() + '</div>');
             }
         </script>
   
