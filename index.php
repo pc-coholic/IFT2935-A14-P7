@@ -131,7 +131,7 @@ check_auth();
                         content += '<button type="button" class="btn btn-default deptselect" onclick="showAttente(' + hopital + ', ' + val['ID'] + ');">' +  val['Nom'] + '</button>';
                       });
                       
-                      content += '<div id="attente_' + val['ID'] + '">&nbsp;</div>';
+                      content += '<div id="attente_' + hopital + '">&nbsp;</div>';
                       infoTemplate.setContent(content);
                     });
                     graphic.setInfoTemplate(infoTemplate);
@@ -215,8 +215,14 @@ check_auth();
             });
             
             function showAttente(hopital, departement) {
-              alert(hopital);
-              alert(departement);
+              $("#attente_" + hopital).replaceWith('<div class="color-swatch brand-primary">Temps d\'attente ici.</div>');
+/*
+              $.getJSON( "attente.php?ID=" + departement, function( data ) {
+                $.each( data, function( key, val ) {
+                  // Magic happens here
+                });
+              });
+*/
             }
         </script>
   
