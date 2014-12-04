@@ -175,7 +175,8 @@ check_auth();
         });
 
         geoLocate = new LocateButton({
-          map: map
+          map: map,
+          setScale: false
         }, "LocateButton");
         geoLocate.startup();
 
