@@ -188,7 +188,8 @@ check_auth();
             var symbol = new esri.symbol.SimpleMarkerSymbol().setSize(8).setColor(new dojo.Color([255, 0, 0]));
             var graphic = new esri.Graphic(latLongPoint, symbol);
             var infoTemplate = new esri.InfoTemplate();
-            infoTemplate.setTitle(val['Nom'] + ' <span class="badge"><span class="glyphicon glyphicon-time" aria-hidden="true"></span> ' + secondsTimeSpanToHM(Math.abs(parseInt(val['Moyenne']))) + ' heures</span>');
+            //infoTemplate.setTitle(val['Nom'] + ' <span class="badge"><span class="glyphicon glyphicon-time" aria-hidden="true"></span> ' + secondsTimeSpanToHM(Math.abs(parseInt(val['Moyenne']))) + ' heures</span>');
+            infoTemplate.setTitle(val['Nom']);
             alert(val['Moyenne']);
             alert(parseInt(val['Moyenne']));
             alert(Math.abs(parseInt(val['Moyenne'])));
@@ -201,7 +202,7 @@ check_auth();
               content += '<div class="btn-group btn-group-xs" role="group">';
 
               $.each( data, function( key, val ) {
-                content += '<button type="button" class="btn btn-default deptselect" onclick="showAttente(' + hopital + ', ' + val['ID'] + ');">' +  val['Nom'] + '</button>';
+                content += '<button type="button" class="btn btn-default deptselect" onclick="showAttente(' + hopital + ', ' + val['ID'] + ');">' +  val['Nom'] + ' <span class="badge"><span class="glyphicon glyphicon-time" aria-hidden="true"></span> ' + secondsTimeSpanToHM(Math.abs(parseInt(val['Moyenne']))) + ' heures</span></button>';
               });
              
               content += '</div><br>'; 
