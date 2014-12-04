@@ -47,8 +47,10 @@ check_auth();
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav navbar-left">
-              <li><a onclick="showNotifyModal();"><span class="glyphicon glyphicon-time" aria-hidden="true"></span> Notification</a></li>
+              <li><a onclick="showNotifyModal();"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Notification</a></li>
               <li><a href="https://github.com/pc-coholic/IFT2935-A14-P7/tree/<?= getenv('HEAD_HASH') ?>"><span class="label label-default"><span class="glyphicon glyphicon-tag" aria-hidden="true"></span> GIT Commit SHA: <?= substr(getenv('HEAD_HASH'), 0, 8) ?></span></a></li>
+              <li><a id="allPatients">&nbsp;</a></li>
+              <li><a id="allAttente">&nbsp;</a></li>
           </ul>
          <ul class="nav navbar-nav navbar-right">
               <li><a href="https://identification.umontreal.ca/cas/logout.ashx"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span> Logout <?= $_SESSION['user'][0] ?></a></li>
@@ -290,6 +292,20 @@ check_auth();
 
         $(window).load(function(){
           $('#locateModal').modal('show');
+
+          $.getJSON("allAttente.php?", function( data ) {
+            $.each( data, function( key, val ) {
+              $("#allAttente").html('<span class="label label-default"><span class="glyphicon glyphicon-time" aria-hidden="true">' . val['MOYENNE'] . '</span></span>');
+            });
+          });
+
+          $.getJSON("allPatients.php?", function( data ) {
+            $.each( data, function( key, val ) {
+              $("#allPatients").html('<span class="label label-default"><span class="glyphicon glyphicon-user" aria-hidden="true">' . secondsTimeSpanToHM(Math.abs(val['Attente'])) . '</span></span>');
+            });
+          });
+
+
         });
       });
          
