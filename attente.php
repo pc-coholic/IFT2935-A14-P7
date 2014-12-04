@@ -9,5 +9,16 @@ $moyenne = query_json("SELECT Description As Severite_des_patients,AVG(DateServi
 $attente = json_decode($attente, true);
 $moyenne = json_decode($moyenne, true);
 
-print($attente[0]['Severite_des_patients']);
+for ($i = 0; $i < sizeof($attente); $i++) {
+  $temps = 1;
+  for ($j = 0; $j < sizeof($moyenne); $j++) {
+    if ($moyenne[$j]['Severite_des_patients'] == $attente[$i]['Severite_des_patients']) {
+      $temps = $moyenne[$j]['MOYENNE'];
+      break;
+    }
+  }
+  $attente[$i]['moyenne'] = $temps;
+}
+
+return json_encode($attente)
 ?>
