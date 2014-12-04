@@ -297,7 +297,7 @@ check_auth();
           var content = ""; 
           $.each( data, function( key, val ) {
             content += '<div class="panel panel-' + val['Label'] + '"><div class="panel-heading"><h3 class="panel-title">' + val['Severite_des_patients'] + '</h3></div>';
-            content += '<div class="panel-body">Patients en attente: ' + val['Attente'] + '<br>Temps d\'attente par chaque patient devant vous: ' + val['moyenne'] + ' heures</div></div>';
+            content += '<div class="panel-body">Patients en attente: ' + val['Attente'] + '<br>Temps d\'attente prevue: ' + secondsTimeSpanToHM(val['moyenne'] * val['Attente']) + ' heures</div></div>';
           });
           $("#attente_" + hopital).html(content);
         });
@@ -308,6 +308,14 @@ check_auth();
         $("#notifyModal").modal('show');
       }
 
+      function secondsTimeSpanToHM(s) {
+        var h = Math.floor(s/3600); //Get whole hours
+        s -= h*3600;
+        var m = Math.floor(s/60); //Get remaining minutes
+        s -= m*60;
+        //return h+":"+(m < 10 ? '0'+m : m)+":"+(s < 10 ? '0'+s : s); //zero padding on minutes and seconds
+        return h+":"+(m < 10 ? '0'+m : m); //zero padding on minutes and seconds
+      }
     </script>
   
     <!-- Bootstrap core JavaScript
