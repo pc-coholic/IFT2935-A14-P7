@@ -212,7 +212,7 @@ check_auth();
         locator = new Locator("https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer");
         locator.on("address-to-locations-complete", showResults);
 
-        $("locategps").click( function() {
+        $("#locategps").click( function() {
           geoLocate._locate();
           $('#locateModal').modal('hide');
         });
