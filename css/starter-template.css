@@ -31,3 +31,6 @@ body {
   border-color: #337ab7;
 }
 
+.esriPopup .sizer {
+  width: 500px;
+}
