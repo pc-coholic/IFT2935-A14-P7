@@ -313,7 +313,8 @@ check_auth();
           var content = ""; 
           $.each( data, function( key, val ) {
             content += '<div class="panel panel-' + val['Label'] + '"><div class="panel-heading"><h3 class="panel-title">' + val['Severite_des_patients'] + '</h3></div>';
-            content += '<div class="panel-body">Patients en attente: ' + val['Attente'] + '<br>Temps d\'attente prevue: ' + secondsTimeSpanToHM(Math.abs(val['MOYENNE'] * val['Attente'])) + ' heures</div></div>';
+            content += '<div class="panel-body">Patients en attente: ' + val['Attente'] + '<br>Temps d\'attente prevue: ' + secondsTimeSpanToHM(Math.abs(val['MOYENNE'] * val['Attente'])) +  '<br>Moyenne d\'attente: ' + secondsTimeSpanToHM(Math.abs(val['MOYENNE'])) + ' heures</div></div>';
+           
           });
           $("#attente_" + hopital).html(content);
         });
