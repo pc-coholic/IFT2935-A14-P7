@@ -9,5 +9,5 @@ $moyenne = query_json("SELECT Description As Severite_des_patients,AVG(DateServi
 $attente = json_decode($attente);
 $moyenne = json_decode($moyenne);
 
-print_r($attente);
+print($attente->{0}->{'Severite_des_patients'});
 ?>
