@@ -185,13 +185,12 @@ check_auth();
         $.getJSON( "hopitaux.php", function( data ) {
           $.each( data, function( key, val ) {
             //alert(val['Nom']);
-            // Met un point sur la map
             var latLongPoint = new esri.geometry.Point(val['Longitude'], val['Latitude']);
-
+               
             var symbol = new esri.symbol.SimpleMarkerSymbol().setSize(8).setColor(new dojo.Color([255, 0, 0]));
             var graphic = new esri.Graphic(latLongPoint, symbol);
             var infoTemplate = new esri.InfoTemplate();
-            infoTemplate.setTitle(val['Nom'] )+ ' <span class="badge"><span class="glyphicon glyphicon-time" aria-hidden="true"></span>  ' + secondsTimeSpanToHM(Math.abs(parseInt(val['MOYENNE']))) + '</span>');
+            infoTemplate.setTitle(val['Nom'] + ' <span class="badge"><span class="glyphicon glyphicon-time" aria-hidden="true"></span> ' + secondsTimeSpanToHM(Math.abs(parseInt(val['Moyenne']))) + '</span>');
             //infoTemplate.setTitle(val['Nom']);
             var address = val['Adresse'];
             var hopital = val['ID'];
