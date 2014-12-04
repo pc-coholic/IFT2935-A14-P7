@@ -11,6 +11,15 @@ $moyenne = query_json("SELECT Description As Severite_des_patients, AVG(TIME_TO_
 $attente = json_decode($attente, true);
 $moyenne = json_decode($moyenne, true);
 
+$j = 0;
+for ($i = 0; $i < 5 ; $i++) {
+	if($j == $i)
+		$j++;
+	else
+		$attente[] = 0;
+}
+
+
 for ($i = 0; $i < sizeof($attente); $i++) {
   $temps = rand(60, 10800);
  for ($j = 0; $j < sizeof($moyenne); $j++) {
