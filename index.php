@@ -293,15 +293,15 @@ check_auth();
         $(window).load(function(){
           $('#locateModal').modal('show');
 
-          $.getJSON("allAttente.php?", function( data ) {
+          $.getJSON("allAttente.php", function( data ) {
             $.each( data, function( key, val ) {
-              $("#allAttente").html('<span class="label label-primary"><span class="glyphicon glyphicon-time" aria-hidden="true">' + val['MOYENNE'] + '</span></span>');
+              $("#allAttente").html('<span class="label label-primary"><span class="glyphicon glyphicon-time" aria-hidden="true"> ' + secondsTimeSpanToHM(Math.abs(val['MOYENNE'])) + '</span></span>');
             });
           });
 
-          $.getJSON("allPatients.php?", function( data ) {
+          $.getJSON("allPatients.php", function( data ) {
             $.each( data, function( key, val ) {
-              $("#allPatients").html('<span class="label label-primary"><span class="glyphicon glyphicon-user" aria-hidden="true">' + secondsTimeSpanToHM(Math.abs(val['Attente'])) + '</span></span>');
+              $("#allPatients").html('<span class="label label-primary"><span class="glyphicon glyphicon-user" aria-hidden="true"> ' + val['Attente'] + '</span></span>');
             });
           });
 
