@@ -17,7 +17,7 @@ for ($i = 0; $i < sizeof($attente); $i++) {
       $temps = strrev(wordwrap(strrev($temps), 2, ':', true));
       if (strlen($temps) == 2) {
         $temps = "0:" . $temps;
-      } elseif ($strlen($temps) == 1) {
+      } elseif (strlen($temps) == 1) {
         $temps = "0:0" . $temps;
       }
       break;
