@@ -190,10 +190,6 @@ check_auth();
             var infoTemplate = new esri.InfoTemplate();
             //infoTemplate.setTitle(val['Nom'] + ' <span class="badge"><span class="glyphicon glyphicon-time" aria-hidden="true"></span> ' + secondsTimeSpanToHM(Math.abs(parseInt(val['Moyenne']))) + ' heures</span>');
             infoTemplate.setTitle(val['Nom']);
-            alert(val['Moyenne']);
-            alert(parseInt(val['Moyenne']));
-            alert(Math.abs(parseInt(val['Moyenne'])));
-            alert(secondsTimeSpanToHM(Math.abs(parseInt(val['Moyenne']))));
             var address = val['Adresse'];
             var hopital = val['ID'];
             
