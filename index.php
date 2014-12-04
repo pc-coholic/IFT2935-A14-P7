@@ -192,11 +192,13 @@ check_auth();
             
             $.getJSON( "departements.php?ID=" + val['ID'], function( data ) {
               var content = address + '<br><br>';
-                 
+              content += '<div class="btn-group btn-group-xs" role="group">';
+
               $.each( data, function( key, val ) {
                 content += '<button type="button" class="btn btn-default deptselect" onclick="showAttente(' + hopital + ', ' + val['ID'] + ');">' +  val['Nom'] + '</button>';
               });
-              
+             
+              content += '</div><br>'; 
               content += '<br><div id="attente_' + hopital + '">&nbsp;</div>';
               content += '<div id="updated_' + hopital + '">&nbsp;</div>';
               infoTemplate.setContent(content);
