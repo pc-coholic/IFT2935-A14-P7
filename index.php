@@ -42,6 +42,7 @@ check_auth();
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand" href="#">IFT2935-A14-P7</a>
         </div>
