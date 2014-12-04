@@ -10,7 +10,8 @@ $attente = json_decode($attente, true);
 $moyenne = json_decode($moyenne, true);
 
 for ($i = 0; $i < sizeof($attente); $i++) {
-  $temps = "0:01";
+  #$temps = "0:01";
+  $temps = rand(0, 3) . ":" . rand(0, 5) . rand(1,9);
   for ($j = 0; $j < sizeof($moyenne); $j++) {
     if ($moyenne[$j]['Severite_des_patients'] == $attente[$i]['Severite_des_patients']) {
       $temps = substr($moyenne[$j]['MOYENNE'], 0, -2);
