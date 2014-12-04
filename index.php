@@ -75,11 +75,11 @@ check_auth();
           </div>
           <div class="modal-body">
             <form class="col-lg-12" id="locateform">
-              <img class="img-responsive center-block" src="http://www.thumpertalk.com/uploads/monthly_12_2013/post-3-0-83650900-1387568242.jpg">
+              <img class="img-responsive center-block" src="http://www.thumpertalk.com/uploads/monthly_12_2013/post-3-0-83650900-1387568242.jpg"><br>
               <div class="input-group input-group-lg col-sm-offset-3 col-sm-6">
                 <input type="text" class="center-block form-control input-lg" title="Entrez votre code postal." placeholder="Entrez votre code postal." id="address">
                 <span class="input-group-btn">
-                  <button class="btn btn-lg btn-primary" type="submit">Localisation par code postal</button>
+                  <button class="btn btn-lg btn-primary" type="submit"><span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span> Localisation par code postal</button>
                   <button class="btn btn-lg btn-info" id="locategps"><span class="glyphicon glyphicon-record" aria-hidden="true"></span> Localisation par GPS</button>
                 </span>
               </div>
