@@ -1,0 +1,1 @@
+adb shell am startservice --user 0 -n com.android.shellms/.sendSMS -e contact +15146219405 -e msg "Message Test automatise 4"
