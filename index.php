@@ -75,6 +75,7 @@ check_auth();
           </div>
           <div class="modal-body">
             <form class="col-lg-12" id="locateform">
+              <img class="img-responsive center-block" src="http://www.thumpertalk.com/uploads/monthly_12_2013/post-3-0-83650900-1387568242.jpg" />
               <div class="input-group input-group-lg col-sm-offset-3 col-sm-6">
                 <input type="text" class="center-block form-control input-lg" title="Entrez votre code postal." placeholder="Entrez votre code postal." id="address">
                 <span class="input-group-btn">
@@ -294,7 +295,6 @@ check_auth();
         $.getJSON( "attente.php?ID=" + departement, function( data ) {
           var content = ""; 
           $.each( data, function( key, val ) {
-            //content += '<div class="alert alert-' + val['Label'] + '">' + val['Severite_des_patients'] + ': ' + val['Attente'] + ' patients en attente.</div>';
             content += '<div class="panel panel-' + val['Label'] + '"><div class="panel-heading"><h3 class="panel-title">' + val['Severite_des_patients'] + '</h3></div>';
             content += '<div class="panel-body">Patients en attente: ' + val['Attente'] + '<br>Temps d\'attente prevue: ' + val['Attente'] * 10 + ' minutes</div></div>';
           });
