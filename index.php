@@ -188,7 +188,7 @@ check_auth();
             var symbol = new esri.symbol.SimpleMarkerSymbol().setSize(8).setColor(new dojo.Color([255, 0, 0]));
             var graphic = new esri.Graphic(latLongPoint, symbol);
             var infoTemplate = new esri.InfoTemplate();
-            infoTemplate.setTitle(val['Nom']);
+            infoTemplate.setTitle(val['Nom'] + ' <span class="badge"><span class="glyphicon glyphicon-time" aria-hidden="true"></span> ' + secondsTimeSpanToHM(Math.abs(val['Moyenne'])) + ' heures</span>');
             var address = val['Adresse'];
             var hopital = val['ID'];
             
@@ -310,7 +310,7 @@ check_auth();
 
       function secondsTimeSpanToHM(s) {
         var h = Math.floor(s/3600); //Get whole hours
-        s -= h*3600;
+        s -= h*3600;<span class="badge">4</span
         var m = Math.floor(s/60); //Get remaining minutes
         s -= m*60;
         //return h+":"+(m < 10 ? '0'+m : m)+":"+(s < 10 ? '0'+s : s); //zero padding on minutes and seconds
