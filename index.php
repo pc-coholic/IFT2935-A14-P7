@@ -292,7 +292,7 @@ check_auth();
         $.getJSON( "attente.php?ID=" + departement, function( data ) {
           var content = ""; 
           $.each( data, function( key, val ) {
-            content += '<div class="alert alert-' + val['Label'] + '">' + val['Description'] + '</div>';
+            content += '<div class="alert alert-' + val['Label'] + '">' + val['Severite_des_patients'] + ': ' + val['Attente'] + ' patients en attente.</div>';
           });
           $("#attente_" + hopital).html(content);
         });
