@@ -41,4 +41,12 @@ function utf8_encode_deep(&$input) {
         }
     }
 }
+
+function merge_json($a, $b) {
+  $r = [];
+  foreach(json_decode($a, true) as $key => $array){
+   $r[$key] = array_merge(json_decode($b, true)[$key],$array);
+  }
+  return json_encode($r);
+} 
 ?>
