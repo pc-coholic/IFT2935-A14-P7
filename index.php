@@ -47,11 +47,11 @@ check_auth();
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav navbar-left">
-              <li><a onclick="showNotifyModal();">Notification</a></li>
-              <li><a href="https://github.com/pc-coholic/IFT2935-A14-P7/tree/<?= getenv('HEAD_HASH') ?>"><span class="label label-default">GIT Commit SHA: <?= substr(getenv('HEAD_HASH'), 0, 8) ?></span></a></li>
+              <li><a onclick="showNotifyModal();"><span class="glyphicon glyphicon-time" aria-hidden="true"></span> Notification</a></li>
+              <li><a href="https://github.com/pc-coholic/IFT2935-A14-P7/tree/<?= getenv('HEAD_HASH') ?>"><span class="label label-default"><span class="glyphicon glyphicon-tag" aria-hidden="true"></span> GIT Commit SHA: <?= substr(getenv('HEAD_HASH'), 0, 8) ?></span></a></li>
           </ul>
          <ul class="nav navbar-nav navbar-right">
-              <li><a href="https://identification.umontreal.ca/cas/logout.ashx">Logout <?= $_SESSION['user'][0] ?></a></li>
+              <li><a href="https://identification.umontreal.ca/cas/logout.ashx"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span> Logout <?= $_SESSION['user'][0] ?></a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
