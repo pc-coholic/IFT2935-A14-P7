@@ -14,8 +14,7 @@ for ($i = 0; $i < sizeof($attente); $i++) {
   for ($j = 0; $j < sizeof($moyenne); $j++) {
     if ($moyenne[$j]['Severite_des_patients'] == $attente[$i]['Severite_des_patients']) {
       $temps = substr($moyenne[$j]['MOYENNE'], 0, -2);
-      #$temps = strrev(wordwrap(strrev($temps), 2, ':'));
-      $temps = wordwrap(strrev($temps), 2, "dasdadsd");
+      $temps = strrev(wordwrap(strrev($temps), 2, ':', true));
       break;
     }
   }
