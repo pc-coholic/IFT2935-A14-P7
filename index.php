@@ -191,7 +191,7 @@ check_auth();
             var symbol = new esri.symbol.SimpleMarkerSymbol().setSize(8).setColor(new dojo.Color([255, 0, 0]));
             var graphic = new esri.Graphic(latLongPoint, symbol);
             var infoTemplate = new esri.InfoTemplate();
-            infoTemplate.setTitle(val['Nom'] + ' <span class="badge"><span class="glyphicon glyphicon-time" aria-hidden="true"></span>  ' + secondsTimeSpanToHM(Math.abs(parseInt(val['MOYENNEGEN']))) + '</span>');
+            infoTemplate.setTitle(val['Nom'] );//+ ' <span class="badge"><span class="glyphicon glyphicon-time" aria-hidden="true"></span>  ' + secondsTimeSpanToHM(Math.abs(parseInt(val['MOYENNEGEN']))) + '</span>');
             //infoTemplate.setTitle(val['Nom']);
             var address = val['Adresse'];
             var hopital = val['ID'];
