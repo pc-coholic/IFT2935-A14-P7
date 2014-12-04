@@ -11,12 +11,12 @@ $moyenne = json_decode($moyenne, true);
 
 for ($i = 0; $i < sizeof($attente); $i++) {
   $temps = rand(60, 10800);
-  for ($j = 0; $j < sizeof($moyenne); $j++) {
-    if ($moyenne[$j]['Severite_des_patients'] == $attente[$i]['Severite_des_patients']) {
-      $temps = round($moyenne[$j]['MOYENNE']);
-      break;
-    }
-  }
+  //for ($j = 0; $j < sizeof($moyenne); $j++) {
+    //if ($moyenne[$j]['Severite_des_patients'] == $attente[$i]['Severite_des_patients']) {
+      //$temps = round($moyenne[$j]['MOYENNE']);
+     // break;
+    //}
+  //}
   $attente[$i]['moyenne'] = $temps;
 }
 
