@@ -20,5 +20,5 @@ for ($i = 0; $i < sizeof($attente); $i++) {
   $attente[$i]['moyenne'] = $temps;
 }
 
-return json_encode($attente)
+print json_encode($attente);
 ?>
