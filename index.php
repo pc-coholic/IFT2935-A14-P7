@@ -310,11 +310,13 @@ check_auth();
 
 
           $.getJSON("allseverite.php", function( data ) {
+             var content = '';
             $.each( data, function( key, val ) {
-              $("#allseverite").html('<span class="label label-primary"><span class="glyphicon glyphicon-user" aria-hidden="true"> ' + val['NbPatient'] + '</span></span>');
-            });
+             //$("#allseverite").html(
+              content +='<span class="label label-primary"><span class="glyphicon glyphicon-user" aria-hidden="true"> ' + val['NbPatient'] + '</span></span>');    
+            //});
           });
-
+           $("#allseverite")+.html(content);
         });
       });
          
