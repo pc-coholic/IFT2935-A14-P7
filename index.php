@@ -42,6 +42,7 @@ check_auth();
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand" href="#">IFT2935-A14-P7</a>
         </div>
@@ -52,14 +53,7 @@ check_auth();
               <li><a id="allPatients">&nbsp;</a></li>
               <li><a id="allAttente">&nbsp;</a></li>
               <li><a id="allseverite">&nbsp;</a></li>
-         <!--  <script>
-            (function(){
-            $.getJSON ( "allseverite.php", function( data ) {
-              $.each( data, function( key, val ) {
-                content += ' + <li><a id='+ val['nbPatient'] + '>&nbsp;</a></li>';
-            });
-            });      })();
-           </script> -->
+         
           </ul>
          <ul class="nav navbar-nav navbar-right">
               <li><a href="https://identification.umontreal.ca/cas/logout.ashx"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span> Logout <?= $_SESSION['user'][0] ?></a></li>
@@ -315,9 +309,9 @@ check_auth();
           });
 
 
-              $.getJSON("allseverite.php", function( data ) {
+          $.getJSON("allseverite.php", function( data ) {
             $.each( data, function( key, val ) {
-              $("#allseverite").html('<span class="label label-primary"><span class="glyphicon glyphicon-user" aria-hidden="true"> ' + val['nbPatient'] + '</span></span>');
+              $("#allseverite").html('<span class="label label-primary"><span class="glyphicon glyphicon-user" aria-hidden="true"> ' + val['NbPatient'] + '</span></span>');
             });
           });
 
