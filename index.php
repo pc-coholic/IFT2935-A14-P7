@@ -51,7 +51,11 @@ check_auth();
               <li><a href="https://github.com/pc-coholic/IFT2935-A14-P7/tree/<?= getenv('HEAD_HASH') ?>"><span class="label label-default"><span class="glyphicon glyphicon-tag" aria-hidden="true"></span> GIT Commit SHA: <?= substr(getenv('HEAD_HASH'), 0, 8) ?></span></a></li>
               <li><a id="allPatients">&nbsp;</a></li>
               <li><a id="allAttente">&nbsp;</a></li>
-              <li><a id="allseverite">&nbsp;</a></li>
+              <script>
+                for($i = 0; i < 5 ; i++){
+                    <li><a id="allseverite">&nbsp;</a></li>
+                  }
+              </script>
           </ul>
          <ul class="nav navbar-nav navbar-right">
               <li><a href="https://identification.umontreal.ca/cas/logout.ashx"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span> Logout <?= $_SESSION['user'][0] ?></a></li>
