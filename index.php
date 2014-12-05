@@ -304,7 +304,7 @@ check_auth();
               $.getJSON("AllmoyenAttente.php", function( data ) {
             var contenu = "";
             $.each( data, function( key, val ) {
-              contenu += '<span class="label label-'+ val['Label'] +'"><span class="glyphicon glyphicon-user" aria-hidden="true"> ' + secondsTimeSpanToHM(Math.abs(val['MOYENNE'])) + '</span></span>';
+              contenu += '<span class="label label-'+ val['Label'] +'"><span class="glyphicon glyphicon-time" aria-hidden="true"> ' + secondsTimeSpanToHM(Math.abs(val['MOYENNE'])) + '</span></span>';
             });
             $("#AllmoyenAttente").html(contenu);
           });
