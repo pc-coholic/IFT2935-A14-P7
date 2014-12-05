@@ -313,7 +313,7 @@ check_auth();
            $.getJSON("allseverite.php", function( data ) {
             var cont = "";
             $.each( data, function( key, val ) {
-              cont += '<span class="label label-'+ val['label'] +'"><span class="glyphicon glyphicon-user" aria-hidden="true"> ' + val['NbPatient'] + '</span></span>';
+              cont += '<span class="label label-'+ val['Label'] +'"><span class="glyphicon glyphicon-user" aria-hidden="true">' + val['NbPatient'] + '</span></span>';
             });
             $("#allseverite").html(cont);
           });
