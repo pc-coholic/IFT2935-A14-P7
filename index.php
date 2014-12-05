@@ -43,6 +43,9 @@ check_auth();
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
              <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand" href="#">IFT2935-A14-P7</a>
         </div>
@@ -52,7 +55,17 @@ check_auth();
               <li><a href="https://github.com/pc-coholic/IFT2935-A14-P7/tree/<?= getenv('HEAD_HASH') ?>"><span class="label label-default"><span class="glyphicon glyphicon-tag" aria-hidden="true"></span> GIT Commit SHA: <?= substr(getenv('HEAD_HASH'), 0, 8) ?></span></a></li>
               <li><a id="allPatients">&nbsp;</a></li>
               <li><a id="allAttente">&nbsp;</a></li>
-              <li><a id="allSeverite[i]">&nbsp;</a></li>
+           <script>
+            
+            $.getJSON ( "allseverite.php", function( data ) {
+              var content = address + '<br><br>';
+              content += '<div class="btn-group btn-group-xs" role="group">';
+
+              $.each( data, function( key, val ) {
+                content += ' + <li><a id='+ val['nbPatient'] + '>&nbsp;</a></li>';
+            });
+      
+           </script>
           </ul>
          <ul class="nav navbar-nav navbar-right">
               <li><a href="https://identification.umontreal.ca/cas/logout.ashx"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span> Logout <?= $_SESSION['user'][0] ?></a></li>
