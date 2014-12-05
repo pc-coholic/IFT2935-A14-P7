@@ -52,9 +52,7 @@ check_auth();
               <li><a id="allPatients">&nbsp;</a></li>
               <li><a id="allAttente">&nbsp;</a></li>
               <script>
-                for($i = 0; i < 5 ; i++){
-                    <li><a id="allseverite">&nbsp;</a></li>
-                  }
+              <li><a id="allseverite">&nbsp;</a></li>
               </script>
           </ul>
          <ul class="nav navbar-nav navbar-right">
