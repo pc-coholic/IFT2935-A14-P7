@@ -51,7 +51,8 @@ check_auth();
               <li><a href="https://github.com/pc-coholic/IFT2935-A14-P7/tree/<?= getenv('HEAD_HASH') ?>"><span class="label label-default"><span class="glyphicon glyphicon-tag" aria-hidden="true"></span> GIT Commit SHA: <?= substr(getenv('HEAD_HASH'), 0, 8) ?></span></a></li>
               <li><a id="allPatients">&nbsp;</a></li>
               <li><a id="allAttente">&nbsp;</a></li>
-              <li><a id="allseverite">&nbsp;</a></li>
+              <li><a id="allseverite">&nbsp;</a></li> 
+              <li><a id="AllmoyenAttente">&nbsp;</a></li>
           </ul>
          <ul class="nav navbar-nav navbar-right">
               <li><a href="https://identification.umontreal.ca/cas/logout.ashx"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span> Logout <?= $_SESSION['user'][0] ?></a></li>
@@ -298,6 +299,13 @@ check_auth();
               cont += '<span class="label label-'+ val['Label'] +'"><span class="glyphicon glyphicon-user" aria-hidden="true"> ' + val['NbPatient'] + '</span></span>';
             });
             $("#allseverite").html(cont);
+          });
+              $.getJSON("AllmoyenAttente.php", function( data ) {
+            var contenu = "";
+            $.each( data, function( key, val ) {
+              contenu += '<span class="label label-'+ val['Label'] +'"><span class="glyphicon glyphicon-user" aria-hidden="true"> ' + val['MOYENNE'] + '</span></span>';
+            });
+            $("#AllmoyenAttente").html(contenu);
           });
         });
       });
