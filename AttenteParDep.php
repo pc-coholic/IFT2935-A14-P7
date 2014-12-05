@@ -1,0 +1,4 @@
+<?php
+require("db.php");
+print query_json("SELECT d.ID, Nom, count(*) AS attente from departement de, PATIENT_DANS_DEPT P , DEPT_HOPITAL D where de.id=d.id_d and d.id=p.id_dept_hop and d.id_h=" . $_GET['ID'] . " and p.DateService is not null group by NOM");
+?>
