@@ -14,7 +14,7 @@ check_auth();
     <meta name="author" content="">
     <link rel="icon" href="favicon.ico">
 
-    <title>IFT2935-A14-P7</title>
+    <title>IFT2935-P7</title>
 
     <!-- Bootstrap core CSS -->
     <link href="/css/bootstrap.min.css" rel="stylesheet">
@@ -43,7 +43,7 @@ check_auth();
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">IFT2935-A14-P7</a>
+          <a class="navbar-brand" href="#">IFT2935-P7</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav navbar-left">
@@ -300,10 +300,11 @@ check_auth();
             });
             $("#allseverite").html(cont);
           });
+             
               $.getJSON("AllmoyenAttente.php", function( data ) {
             var contenu = "";
             $.each( data, function( key, val ) {
-              contenu += '<span class="label label-'+ val['Label'] +'"><span class="glyphicon glyphicon-user" aria-hidden="true"> ' + secondsTimeSpanToHM(val['MOYENNE']) + '</span></span>';
+              contenu += '<span class="label label-'+ val['Label'] +'"><span class="glyphicon glyphicon-user" aria-hidden="true"> ' + secondsTimeSpanToHM(Math.abs(val['MOYENNE'])) + '</span></span>';
             });
             $("#AllmoyenAttente").html(contenu);
           });
