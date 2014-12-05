@@ -313,7 +313,7 @@ check_auth();
              var content = '';
             $.each( data, function( key, val ) {
              //$("#allseverite").html(
-              content +='<span class="label label-primary"><span class="glyphicon glyphicon-user" aria-hidden="true"> ' + val['NbPatient'] + '</span></span>');    
+              content +='<span class="label label-primary"><span class="glyphicon glyphicon-user" aria-hidden="true"> ' + val['NbPatient'] + '</span></span>';    
             //});
           });
            $("#allseverite")+.html(content);
