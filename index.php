@@ -52,7 +52,9 @@ check_auth();
               <li><a id="allPatients">&nbsp;</a></li>
               <li><a id="allAttente">&nbsp;</a></li>
               <script>
-              <li><a id="allseverite">&nbsp;</a></li>
+                for($i = 0; i < 5 ; i++){
+                    <li><a id="allseverite">&nbsp;</a></li>
+                  }
               </script>
           </ul>
          <ul class="nav navbar-nav navbar-right">
@@ -169,7 +171,6 @@ check_auth();
       require(["esri/map", "application/bootstrapmap", "esri/dijit/LocateButton", "esri/tasks/locator", "esri/graphic", 
                 "esri/symbols/SimpleMarkerSymbol", "esri/symbols/PictureMarkerSymbol", "esri/symbols/Font", "esri/symbols/TextSymbol", 
                 "dojo/_base/array", "esri/Color", "dojo/number", "dojo/parser", "dojo/dom", "dijit/registry", "dojo/domReady!"],
-
       function(Map, BootstrapMap, LocateButton, Locator, Graphic, SimpleMarkerSymbol, PictureMarkerSymbol, Font, TextSymbol, arrayUtils, Color, number, parser, dom, registry) {
         parser.parse();
         // Get a reference to the ArcGIS Map class
@@ -178,13 +179,11 @@ check_auth();
           center:[-73.5844, 45.5379],
           zoom:12
         });
-
         geoLocate = new LocateButton({
           map: map,
           setScale: false
         }, "LocateButton");
         geoLocate.startup();
-
         $.getJSON( "hopitaux.php", function( data ) {
           $.each( data, function( key, val ) {
             //alert(val['Nom']);
@@ -201,7 +200,6 @@ check_auth();
             $.getJSON( "departements.php?ID=" + val['ID'], function( data ) {
               var content = address + '<br><br>';
               content += '<div class="btn-group btn-group-xs" role="group">';
-
               $.each( data, function( key, val ) {
                 content += '<button type="button" class="btn btn-default deptselect" onclick="showAttente(' + hopital + ', ' + val['ID'] + ');">' +  val['Nom'] + ' <span class="badge"><span class="glyphicon glyphicon-time" aria-hidden="true"></span> ' + secondsTimeSpanToHM(Math.abs(parseInt(val['Moyenne']))) + '</span></button>';
               });
@@ -215,15 +213,12 @@ check_auth();
             map.graphics.add(graphic);
           });
         });
-
         locator = new Locator("https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer");
         locator.on("address-to-locations-complete", showResults);
-
         $("#locategps").click( function() {
           geoLocate._locate();
           $('#locateModal').modal('hide');
         });
-
         $("#locateform").submit( function() {
           event.preventDefault();
           var address = {
@@ -243,7 +238,6 @@ check_auth();
           $.post("notification.php", $("#notifyform").serialize() );
           $('#notifyModal').modal('hide');
         });
-
         function showResults(evt) {
           var symbol = new PictureMarkerSymbol('https://js.arcgis.com/3.10compact/js/esri/dijit/images/sdk_gps_location.png', 28, 28);
           var geom;
@@ -282,32 +276,26 @@ check_auth();
              return false; //break out of loop after one candidate with score greater  than 80 is found.
             }
           });
-
           if ( geom !== undefined ) {
             map.centerAndZoom(geom, 12);
           }
         }
-
         $(".modal-wide").on("show.bs.modal", function() {
           var height = $(window).height() - 200;
           $(this).find(".modal-body").css("max-height", height);
         });
-
         $(window).load(function(){
           $('#locateModal').modal('show');
-
           $.getJSON("allAttente.php", function( data ) {
             $.each( data, function( key, val ) {
               $("#allAttente").html('<span class="label label-primary"><span class="glyphicon glyphicon-time" aria-hidden="true"> ' + secondsTimeSpanToHM(Math.abs(val['MOYENNE'])) + '</span></span>');
             });
           });
-
           $.getJSON("allPatients.php", function( data ) {
             $.each( data, function( key, val ) {
               $("#allPatients").html('<span class="label label-primary"><span class="glyphicon glyphicon-user" aria-hidden="true"> ' + val['Attente'] + '</span></span>');
             });
           });
-
            $.getJSON("allseverite.php", function( data ) {
             var cont = "";
             $.each( data, function( key, val ) {
@@ -315,7 +303,6 @@ check_auth();
             });
             $("#allseverite").html(cont);
           });
-
         });
       });
          
@@ -335,7 +322,6 @@ check_auth();
       function showNotifyModal() {
         $("#notifyModal").modal('show');
       }
-
       function secondsTimeSpanToHM(s) {
         var h = Math.floor(s/3600); //Get whole hours
         s -= h*3600;
