@@ -56,12 +56,12 @@ check_auth();
               <li><a id="allPatients">&nbsp;</a></li>
               <li><a id="allAttente">&nbsp;</a></li>
            <script>
-            
+            (function(){
             $.getJSON ( "allseverite.php", function( data ) {
               $.each( data, function( key, val ) {
                 content += ' + <li><a id='+ val['nbPatient'] + '>&nbsp;</a></li>';
             });
-            });      
+            });      })();
            </script>
           </ul>
          <ul class="nav navbar-nav navbar-right">
