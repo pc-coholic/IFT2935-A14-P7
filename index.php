@@ -42,10 +42,10 @@ check_auth();
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
-             <span class="icon-bar"></span>
-             <span class="icon-bar"></span>
-             <span class="icon-bar"></span>
-             <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand" href="#">IFT2935-A14-P7</a>
         </div>
@@ -61,7 +61,7 @@ check_auth();
               $.each( data, function( key, val ) {
                 content += ' + <li><a id='+ val['nbPatient'] + '>&nbsp;</a></li>';
             });
-      
+            });      
            </script>
           </ul>
          <ul class="nav navbar-nav navbar-right">
