@@ -58,9 +58,6 @@ check_auth();
            <script>
             
             $.getJSON ( "allseverite.php", function( data ) {
-              var content = address + '<br><br>';
-              content += '<div class="btn-group btn-group-xs" role="group">';
-
               $.each( data, function( key, val ) {
                 content += ' + <li><a id='+ val['nbPatient'] + '>&nbsp;</a></li>';
             });
