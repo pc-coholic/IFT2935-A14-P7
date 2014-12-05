@@ -42,10 +42,6 @@ check_auth();
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand" href="#">IFT2935-A14-P7</a>
         </div>
@@ -55,14 +51,15 @@ check_auth();
               <li><a href="https://github.com/pc-coholic/IFT2935-A14-P7/tree/<?= getenv('HEAD_HASH') ?>"><span class="label label-default"><span class="glyphicon glyphicon-tag" aria-hidden="true"></span> GIT Commit SHA: <?= substr(getenv('HEAD_HASH'), 0, 8) ?></span></a></li>
               <li><a id="allPatients">&nbsp;</a></li>
               <li><a id="allAttente">&nbsp;</a></li>
-           <script>
+              <li><a id="allseverite">&nbsp;</a></li>
+         <!--  <script>
             (function(){
             $.getJSON ( "allseverite.php", function( data ) {
               $.each( data, function( key, val ) {
                 content += ' + <li><a id='+ val['nbPatient'] + '>&nbsp;</a></li>';
             });
             });      })();
-           </script>
+           </script> -->
           </ul>
          <ul class="nav navbar-nav navbar-right">
               <li><a href="https://identification.umontreal.ca/cas/logout.ashx"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span> Logout <?= $_SESSION['user'][0] ?></a></li>
@@ -314,6 +311,13 @@ check_auth();
           $.getJSON("allPatients.php", function( data ) {
             $.each( data, function( key, val ) {
               $("#allPatients").html('<span class="label label-primary"><span class="glyphicon glyphicon-user" aria-hidden="true"> ' + val['Attente'] + '</span></span>');
+            });
+          });
+
+
+              $.getJSON("allseverite.php", function( data ) {
+            $.each( data, function( key, val ) {
+              $("#allseverite").html('<span class="label label-primary"><span class="glyphicon glyphicon-user" aria-hidden="true"> ' + val['nbPatient'] + '</span></span>');
             });
           });
 
